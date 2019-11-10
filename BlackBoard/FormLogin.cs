@@ -21,16 +21,24 @@ namespace BlackBoard
         {
             //TODO: create login logic 
             SQLiteConnector con = new SQLiteConnector();
-            con.Open();
-
-            DataSet test = con.Select("Select * from student;");
-        
-
-            MessageBox.Show(test.GetXml());
-
-            FormMain main = new FormMain(this);
-            this.Hide();
-            main.Show();
+            DataSet test = null;
+            try
+            {
+                con.Open();
+                test = con.Select("Select idAccount from Account;");
+                MessageBox.Show(test.GetXml());
+                FormMain main = new FormMain(this);
+                this.Hide();
+                main.Show();
+            }
+            catch(System.Data.SQLite.SQLiteException err)
+            {
+                MessageBox.Show(err.Message.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
 
         }
 
