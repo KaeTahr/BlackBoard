@@ -18,7 +18,7 @@ namespace BlackBoard
         SQLiteTransaction my_txn;
         SQLiteDataAdapter da;
 
-        string chain = "Data Source=bb.db ; Version=3;datetimeformat=CurrentCulture";
+        string chain = @"Data Source=bb.db ; Version=3;datetimeformat=CurrentCulture";
 
         /// <summary>
         /// Opens a new connection to the database.

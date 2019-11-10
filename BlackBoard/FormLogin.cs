@@ -20,6 +20,14 @@ namespace BlackBoard
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             //TODO: create login logic 
+            SQLiteConnector con = new SQLiteConnector();
+            con.Open();
+
+            DataSet test = con.Select("Select * from student;");
+        
+
+            MessageBox.Show(test.GetXml());
+
             FormMain main = new FormMain(this);
             this.Hide();
             main.Show();
