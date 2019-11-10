@@ -32,12 +32,12 @@ namespace BlackBoard
         string GetUserName()
         {
             string name = "";
-            string sql = @" select a.idAccount,b.firstname,b.lastname from account a
+            string sql = @" select b.firstname,b.lastname from account a
                             inner join professor b
                             on a.idProfessor=b.idProfessor 
                             where a.idaccount={0}
                             union
-                            select  a.idAccount,b.firstname,b.lastname from account a
+                            select  b.firstname,b.lastname from account a
                             inner join student b
                             on a.idStudent=b.idStudent
                             where a.idaccount={0};";
@@ -48,8 +48,8 @@ namespace BlackBoard
             {
                 con.Open();
                 DataTable dt = con.SelectTable(sql);
-                name += dt.Rows[0].ItemArray[1].ToString();
-                name += " " + dt.Rows[0].ItemArray[2].ToString();
+                name += dt.Rows[0].ItemArray[0].ToString();
+                name += " " + dt.Rows[0].ItemArray[1].ToString();
 
             }
             catch (System.Data.SQLite.SQLiteException err)
@@ -57,7 +57,6 @@ namespace BlackBoard
                 con.Close();
                 MessageBox.Show(err.Message.ToString());
             }
-            ///TODO:actually check if a user without a name is an admin
             catch (System.IndexOutOfRangeException)
             {
                 con.Close();
@@ -70,7 +69,7 @@ namespace BlackBoard
                 }
                 else
                 {
-                    name = "Usuario sin nombre. (Si esta leyendo esto, regañe al diseñador de base de dato)";
+                    name = "Usuario sin nombre. (Si esta leyendo esto, regañe al diseñador de base de dato o el menso del front-end)";
                 }
 
             }
