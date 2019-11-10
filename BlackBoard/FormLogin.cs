@@ -20,21 +20,25 @@ namespace BlackBoard
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             SQLiteConnector con = new SQLiteConnector();
-            DataSet test = null;
 
             string username = textUser.Text;
             string password = textPassword.Text;
+            
+            if(username=="" || password=="")
+            {
+                MessageBox.Show("Debe llenar ambos campos.", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             string sql = @"select idAccount from Account where username='" + username + "' and password='" + password + "';";
             string idAccount = "";
             try
             {
                 con.Open();
+                idAccount = con.SelectSingle(sql);
+                con.Close();
 
-                idAccount = con.Select(sql).Tables[0].Rows[0].ItemArray[0].ToString();
-
-                MessageBox.Show(idAccount);
-                FormMain main = new FormMain(this);
+                FormMain main = new FormMain(this,idAccount);
                 this.Hide();
                 main.Show();
             }
@@ -42,15 +46,20 @@ namespace BlackBoard
             {
                 MessageBox.Show(err.Message.ToString());
             }
-            catch(System.IndexOutOfRangeException err)
+            catch(System.IndexOutOfRangeException)
             {
                 MessageBox.Show("Usuario o contraseña incorrecta","Credenciales Inválidas",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            finally
+            finally 
             {
                 con.Close();
             }
 
+        }
+
+        public void ClearPassword()
+        {
+            textPassword.Text = "";
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

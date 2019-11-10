@@ -18,6 +18,8 @@ namespace BlackBoard
         SQLiteTransaction my_txn;
         SQLiteDataAdapter da;
 
+        public bool isOpen = false;
+
         string chain = @"Data Source=db/bb.db ; Version=3;datetimeformat=CurrentCulture";
 
         /// <summary>
@@ -29,6 +31,7 @@ namespace BlackBoard
             my_connect.Open();
             my_cmd = my_connect.CreateCommand();
             my_txn = my_connect.BeginTransaction(System.Data.IsolationLevel.Serializable);
+            isOpen = true;
         }
 
         /// <summary>
@@ -36,7 +39,7 @@ namespace BlackBoard
         /// </summary>
         /// <param name="Query">SQL code sent to the database as as query.</param>
         /// <returns>DataSet containing the queried information.</returns>
-        public DataSet Select(string Query)
+        public DataSet SelectDataSet(string Query)
         {
             DataSet ds = new DataSet();
             my_cmd.Connection = my_connect;
@@ -45,6 +48,40 @@ namespace BlackBoard
             da.SelectCommand.Transaction = my_txn;
             da.Fill(ds);
             return ds;
+        }
+
+        /// <summary>
+        /// Queries the database and returns a DataTable containing the information the database returns.
+        /// </summary>
+        /// <param name="Query">SQL code sent to the database as as query.</param>
+        /// <returns>DataTable containing the queried information.</returns>
+        public DataTable SelectTable (string Query)
+        {
+            DataSet ds = new DataSet();
+            my_cmd.Connection = my_connect;
+            my_cmd.Transaction = my_txn;
+            da = new SQLiteDataAdapter(Query, my_connect);
+            da.SelectCommand.Transaction = my_txn;
+            da.Fill(ds);
+            return ds.Tables[0];
+        }
+
+        /// <summary>
+        /// Queries the database and returns a single string for use in single-item queries.
+        /// </summary>
+        /// <param name="Query">SQL code sent to the database as as query.</param>
+        /// <returns>A single requested string.</returns>
+        public string SelectSingle(string Query)
+        {
+            DataSet ds = new DataSet();
+            my_cmd.Connection = my_connect;
+            my_cmd.Transaction = my_txn;
+            da = new SQLiteDataAdapter(Query, my_connect);
+            da.SelectCommand.Transaction = my_txn;
+            da.Fill(ds);
+            return ds.Tables[0].Rows[0].ItemArray[0].ToString();
+
+
         }
 
         /// <summary>
@@ -63,8 +100,12 @@ namespace BlackBoard
         /// </summary>
         public void Close()
         {
-            my_txn.Commit();
-            my_connect.Close();
+           if(isOpen)
+            {
+                my_txn.Commit();
+                my_connect.Close();
+                isOpen = false;
+            }
         }
     }
 
