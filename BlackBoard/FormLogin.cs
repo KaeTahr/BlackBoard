@@ -19,14 +19,21 @@ namespace BlackBoard
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            //TODO: create login logic 
             SQLiteConnector con = new SQLiteConnector();
             DataSet test = null;
+
+            string username = textUser.Text;
+            string password = textPassword.Text;
+
+            string sql = @"select idAccount from Account where username='" + username + "' and password='" + password + "';";
+            string idAccount = "";
             try
             {
                 con.Open();
-                test = con.Select("Select idAccount from Account;");
-                MessageBox.Show(test.GetXml());
+
+                idAccount = con.Select(sql).Tables[0].Rows[0].ItemArray[0].ToString();
+
+                MessageBox.Show(idAccount);
                 FormMain main = new FormMain(this);
                 this.Hide();
                 main.Show();
@@ -34,6 +41,10 @@ namespace BlackBoard
             catch(System.Data.SQLite.SQLiteException err)
             {
                 MessageBox.Show(err.Message.ToString());
+            }
+            catch(System.IndexOutOfRangeException err)
+            {
+                MessageBox.Show("Usuario o contraseña incorrecta","Credenciales Inválidas",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             finally
             {
