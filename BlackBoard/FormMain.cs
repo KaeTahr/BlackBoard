@@ -17,11 +17,23 @@ namespace BlackBoard
         {
             InitializeComponent();
             login = l;
+            openCursos();
         }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             login.Show();
+        }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openCursos();
+        }
+
+        void openCursos()
+        {
+            FormCursos fc = new FormCursos(this);
+            fc.Show();
         }
     }
 }
