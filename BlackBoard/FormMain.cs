@@ -15,18 +15,36 @@ namespace BlackBoard
         FormLogin login;
         string idAccount;
         SQLiteConnector con;
-        public FormMain(FormLogin l, string idAccount)
+        int userType;
+        public FormMain(FormLogin l, string idAccount, int userType)
         {
             InitializeComponent();
             con = new SQLiteConnector();
             login = l;
             this.idAccount = idAccount;
+            this.userType = userType;
             setTitle();
         }
 
         void setTitle()
         {
-            this.Text = "BlackBoard | "+GetUserName();
+            string type;
+            switch(userType)
+            {
+                case 0:
+                    type = "admin";
+                    break;
+                case 1:
+                    type = "Profesor";
+                    break;
+                case 2:
+                    type = "Alumno";
+                    break;
+                default:
+                    type = "";
+                    break;
+            }
+            this.Text = "BlackBoard | " + type + " "  +GetUserName();
         }
 
         string GetUserName()
