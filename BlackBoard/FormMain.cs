@@ -25,6 +25,7 @@ namespace BlackBoard
             this.idAccount = idAccount;
             this.userType = userType;
             setTitle();
+            openDefault();
         }
 
         void setTitle()
@@ -99,6 +100,19 @@ namespace BlackBoard
             return name;
         }
 
+        void openDefault()
+        {
+            switch(userType)
+            {
+                case (int)USERS.ADMIN:
+                    break;
+                case (int)USERS.PROFESSOR:
+                    break;
+                case (int)USERS.STUDENT:
+                    openCursosStudent();
+                    break;
+            }
+        }
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             login.Show();
@@ -107,12 +121,12 @@ namespace BlackBoard
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openCursos();
+            openCursosStudent();
         }
 
-        void openCursos()
+        void openCursosStudent()
         {
-            FormCursos fc = new FormCursos(this);
+            FormCursosStudent fc = new FormCursosStudent(this);
             fc.Show();
         }
     }

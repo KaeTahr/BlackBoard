@@ -1,6 +1,6 @@
 ﻿namespace BlackBoard
 {
-    partial class FormCursos
+    partial class FormCursosStudent
     {
         /// <summary>
         /// Required designer variable.
@@ -59,13 +59,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 378);
             this.dataGridView1.TabIndex = 0;
             // 
-            // FormCursos
+            // FormCursosStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "FormCursos";
+            this.Name = "FormCursosStudent";
             this.Text = "FormCursos";
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
