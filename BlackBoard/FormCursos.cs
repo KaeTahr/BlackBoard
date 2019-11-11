@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BlackBoard
 {
-    public partial class FormCursosStudent : Form
+    public partial class FormCursos : Form
     {
-        public FormCursosStudent(FormMain m)
+        public FormCursos(FormMain m)
         {
             InitializeComponent();
             this.MdiParent = m;
