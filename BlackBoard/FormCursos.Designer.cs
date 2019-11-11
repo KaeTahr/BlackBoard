@@ -1,6 +1,6 @@
 ﻿namespace BlackBoard
 {
-    partial class FormCursosStudent
+    partial class FormCursos
     {
         /// <summary>
         /// Required designer variable.

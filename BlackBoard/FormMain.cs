@@ -126,7 +126,7 @@ namespace BlackBoard
 
         void openCursosStudent()
         {
-            FormCursosStudent fc = new FormCursosStudent(this);
+            FormCursos fc = new FormCursos(this);
             fc.Show();
         }
     }
