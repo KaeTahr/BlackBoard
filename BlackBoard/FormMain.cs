@@ -16,6 +16,7 @@ namespace BlackBoard
         string idAccount;
         SQLiteConnector con;
         int userType;
+        enum USERS { ADMIN, PROFESSOR, STUDENT};
         public FormMain(FormLogin l, string idAccount, int userType)
         {
             InitializeComponent();
@@ -31,13 +32,13 @@ namespace BlackBoard
             string type;
             switch(userType)
             {
-                case 0:
+                case (int)USERS.ADMIN:
                     type = "admin";
                     break;
-                case 1:
+                case (int)USERS.PROFESSOR:
                     type = "Profesor";
                     break;
-                case 2:
+                case (int)USERS.STUDENT:
                     type = "Alumno";
                     break;
                 default:
