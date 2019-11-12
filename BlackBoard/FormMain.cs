@@ -15,18 +15,38 @@ namespace BlackBoard
         FormLogin login;
         string idAccount;
         SQLiteConnector con;
-        public FormMain(FormLogin l, string idAccount)
+        int userType;
+        enum USERS { ADMIN, PROFESSOR, STUDENT};
+        public FormMain(FormLogin l, string idAccount, int userType)
         {
             InitializeComponent();
             con = new SQLiteConnector();
             login = l;
             this.idAccount = idAccount;
+            this.userType = userType;
             setTitle();
+            openDefault();
         }
 
         void setTitle()
         {
-            this.Text = "BlackBoard | "+GetUserName();
+            string type;
+            switch(userType)
+            {
+                case (int)USERS.ADMIN:
+                    type = "admin";
+                    break;
+                case (int)USERS.PROFESSOR:
+                    type = "Profesor";
+                    break;
+                case (int)USERS.STUDENT:
+                    type = "Alumno";
+                    break;
+                default:
+                    type = "";
+                    break;
+            }
+            this.Text = "BlackBoard | " + type + " "  +GetUserName();
         }
 
         string GetUserName()
@@ -80,6 +100,19 @@ namespace BlackBoard
             return name;
         }
 
+        void openDefault()
+        {
+            switch(userType)
+            {
+                case (int)USERS.ADMIN:
+                    break;
+                case (int)USERS.PROFESSOR:
+                    break;
+                case (int)USERS.STUDENT:
+                    openCursosStudent();
+                    break;
+            }
+        }
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             login.Show();
@@ -88,10 +121,10 @@ namespace BlackBoard
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openCursos();
+            openCursosStudent();
         }
 
-        void openCursos()
+        void openCursosStudent()
         {
             FormCursos fc = new FormCursos(this);
             fc.Show();

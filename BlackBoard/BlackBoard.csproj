@@ -87,6 +87,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnector.cs" />
+    <Compile Include="UCForum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCForum.Designer.cs">
+      <DependentUpon>UCForum.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormCursos.resx">
       <DependentUpon>FormCursos.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +111,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCForum.resx">
+      <DependentUpon>UCForum.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

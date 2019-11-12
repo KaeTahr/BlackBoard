@@ -36,9 +36,27 @@ namespace BlackBoard
             {
                 con.Open();
                 idAccount = con.SelectSingle(sql);
+                sql = @"select idProfessor from account where idAccount=" + idAccount;
+                int accountType=0;
+                if (con.SelectSingle(sql) == "")
+                {
+                    sql = @"select idStudent from account where idAccount=" + idAccount;
+                    if (con.SelectSingle(sql) == "")
+                    {
+                        accountType = 0;
+                    }
+                    else
+                    {
+                        accountType = 2;
+                    }
+                }
+                else
+                {
+                    accountType = 1;
+                }
                 con.Close();
 
-                FormMain main = new FormMain(this,idAccount);
+                FormMain main = new FormMain(this,idAccount, accountType);
                 this.Hide();
                 main.Show();
             }
