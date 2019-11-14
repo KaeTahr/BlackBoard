@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGrades.Designer.cs">
+      <DependentUpon>FormGrades.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="FormCursos.resx">
       <DependentUpon>FormCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGrades.resx">
+      <DependentUpon>FormGrades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

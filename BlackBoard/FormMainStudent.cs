@@ -16,14 +16,24 @@ namespace BlackBoard
         string idAccount;
         SQLiteConnector con;
         string idStudent;
+        bool isCursosOpen;
+        bool isGradesOpen;
+        //bool isAssignmentsOpen;
+        FormCursos cursos;
+        FormGrades grades;
+        //FormAssignments;
         public FormMainStudent(FormLogin l, string idAccount)
         {
             InitializeComponent();
             con = new SQLiteConnector();
             login = l;
             this.idAccount = idAccount;
-
+            isCursosOpen = false;
+            isGradesOpen = false;
+            //IsAssignmentsOpen = false;
             setTitle();
+            cursos = null;
+            grades = null;
         }
 
         void setTitle()
@@ -99,15 +109,48 @@ namespace BlackBoard
             login.ClearPassword();
         }
 
-        void openCursosStudent()
-        {
-            FormCursos fc = new FormCursos(this, idStudent);
-            fc.Show();
-        }
 
+        public void setCursosBool()
+        {
+            isCursosOpen = false;
+        }
+        public void setGradesBool()
+        {
+            isGradesOpen = false;
+        }
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openCursosStudent();
+            if (!isCursosOpen)
+            {
+                cursos = new FormCursos(this, idStudent);
+                cursos.Show();
+                cursos.WindowState = FormWindowState.Minimized;
+                cursos.WindowState = FormWindowState.Maximized;
+                isCursosOpen = true;
+            }
+            else
+            {
+                cursos.Focus();
+            }
         }
+
+        private void calificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {     
+
+            if (!isGradesOpen)
+            {
+                grades = new FormGrades(this, idStudent);
+                grades.MdiParent = this;
+                grades.Show();
+                grades.WindowState = FormWindowState.Minimized;
+                grades.WindowState = FormWindowState.Maximized;
+                isGradesOpen = true;
+            }
+            else
+            {
+                grades.Focus();
+            }
+        }
+
     }
 }

@@ -15,6 +15,7 @@ namespace BlackBoard
         public FormLogin()
         {
             InitializeComponent();
+          
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace BlackBoard
         {
             SQLiteConnector con = new SQLiteConnector();
 
-            string username = textUser.Text;
+            string username = textUser.Text.ToUpper();
             string password = textPassword.Text;
 
             if (username == "" || password == "")

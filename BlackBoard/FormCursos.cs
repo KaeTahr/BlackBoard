@@ -14,6 +14,9 @@ namespace BlackBoard
     {
         string idStudent;
         SQLiteConnector con;
+        FormMainStudent parent;
+        string selectedCourse;
+
         public FormCursos(FormMainStudent m, string idStudent)
         {
             InitializeComponent();
@@ -21,25 +24,41 @@ namespace BlackBoard
             con = new SQLiteConnector();
             this.idStudent = idStudent;
             FillDataGridView();
+            parent = m;
         }
 
         private void FillDataGridView()
         {
             con.Open();
-            string sql = @"select c.name from course c inner join course_student cs on c.idCourse=cs.idCourse
+            string sql = @"select c.name as Curso, c.idCourse from course c inner join course_student cs on c.idCourse=cs.idCourse
 inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStudent+";";
-            dataGridView1.DataSource = con.SelectTable (sql);
+            dataGridView1.DataSource = con.SelectTable(sql);
             con.Close();
+            dataGridView1.Columns[1].Visible = false;
             
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void FormCursos_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void FormCursos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.setCursosBool();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedCourse = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            labelTitle.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+          
+            string sql = "select description from course where idcourse =" + selectedCourse +";";
+            con.Open();
+            labelDesc.Text = con.SelectSingle(sql);
+            labelProfe.Text = "Prof. " + con.SelectSingle("select p.lastname from professor p inner join course c on c.idprofessor = p.idprofessor where c.idCourse=" + selectedCourse + ";");
+            con.Close();
+            
 
         }
     }
