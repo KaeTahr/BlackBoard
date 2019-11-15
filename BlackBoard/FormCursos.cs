@@ -33,8 +33,12 @@ namespace BlackBoard
             string sql = @"select c.name as Curso, c.idCourse from course c inner join course_student cs on c.idCourse=cs.idCourse
 inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStudent+";";
             dataGridView1.DataSource = con.SelectTable(sql);
+
+            //Fill Tareas
             con.Close();
             dataGridView1.Columns[1].Visible = false;
+
+            
             
         }
 
@@ -63,6 +67,11 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
         }
 
         private void labelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

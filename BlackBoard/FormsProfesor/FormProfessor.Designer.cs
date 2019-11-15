@@ -83,7 +83,7 @@
             this.tabTareas.Location = new System.Drawing.Point(4, 22);
             this.tabTareas.Name = "tabTareas";
             this.tabTareas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTareas.Size = new System.Drawing.Size(522, 424);
+            this.tabTareas.Size = new System.Drawing.Size(583, 424);
             this.tabTareas.TabIndex = 0;
             this.tabTareas.Text = "Tareas";
             this.tabTareas.UseVisualStyleBackColor = true;
@@ -106,6 +106,8 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormProfessor";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormProfessor_FormClosed);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

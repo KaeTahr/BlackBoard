@@ -204,6 +204,7 @@
             this.dataGridTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
             this.dataGridTareas.TabIndex = 2;
+            this.dataGridTareas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTareas_CellContentClick);
             // 
             // tabCalificaciones
             // 

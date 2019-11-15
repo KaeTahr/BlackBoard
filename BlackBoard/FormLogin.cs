@@ -63,7 +63,7 @@ namespace BlackBoard
                 else
                 {
                     con.Close();
-                    FormMainStudent main = new FormMainStudent(this, idAccount); // TODO: implemenent teacher screen
+                    FormsProfesor.FormProfessor main = new FormsProfesor.FormProfessor(this, idAccount); // TODO: implemenent teacher screen
                     main.Show();
                 }
                 con.Close();
