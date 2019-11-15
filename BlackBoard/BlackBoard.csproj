@@ -90,6 +90,12 @@
     <Compile Include="FormMainStudent.Designer.cs">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsProfesor\FormProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormProfessor.Designer.cs">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnector.cs" />
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMainStudent.resx">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormProfessor.resx">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

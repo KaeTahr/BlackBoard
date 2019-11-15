@@ -61,5 +61,10 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
             
 
         }
+
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

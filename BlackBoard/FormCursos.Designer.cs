@@ -34,13 +34,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStart = new System.Windows.Forms.TabPage();
+            this.labelProfe = new System.Windows.Forms.Label();
             this.labelDesc = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabTareas = new System.Windows.Forms.TabPage();
+            this.dataGridTareas = new System.Windows.Forms.DataGridView();
             this.tabCalificaciones = new System.Windows.Forms.TabPage();
             this.tabForos = new System.Windows.Forms.TabPage();
-            this.labelProfe = new System.Windows.Forms.Label();
-            this.dataGridTareas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -125,10 +125,19 @@
             this.tabStart.Location = new System.Drawing.Point(4, 22);
             this.tabStart.Name = "tabStart";
             this.tabStart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStart.Size = new System.Drawing.Size(574, 403);
+            this.tabStart.Size = new System.Drawing.Size(614, 428);
             this.tabStart.TabIndex = 2;
             this.tabStart.Text = "Información General";
             this.tabStart.UseVisualStyleBackColor = true;
+            // 
+            // labelProfe
+            // 
+            this.labelProfe.AutoSize = true;
+            this.labelProfe.Location = new System.Drawing.Point(44, 72);
+            this.labelProfe.Name = "labelProfe";
+            this.labelProfe.Size = new System.Drawing.Size(10, 13);
+            this.labelProfe.TabIndex = 2;
+            this.labelProfe.Text = " ";
             // 
             // labelDesc
             // 
@@ -149,6 +158,7 @@
             this.labelTitle.Size = new System.Drawing.Size(355, 39);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Seleccione un Curso";
+            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // tabTareas
             // 
@@ -160,35 +170,6 @@
             this.tabTareas.TabIndex = 0;
             this.tabTareas.Text = "Tareas";
             this.tabTareas.UseVisualStyleBackColor = true;
-            // 
-            // tabCalificaciones
-            // 
-            this.tabCalificaciones.Location = new System.Drawing.Point(4, 22);
-            this.tabCalificaciones.Name = "tabCalificaciones";
-            this.tabCalificaciones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCalificaciones.Size = new System.Drawing.Size(627, 428);
-            this.tabCalificaciones.TabIndex = 1;
-            this.tabCalificaciones.Text = "Calificaciones";
-            this.tabCalificaciones.UseVisualStyleBackColor = true;
-            // 
-            // tabForos
-            // 
-            this.tabForos.Location = new System.Drawing.Point(4, 22);
-            this.tabForos.Name = "tabForos";
-            this.tabForos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabForos.Size = new System.Drawing.Size(627, 428);
-            this.tabForos.TabIndex = 3;
-            this.tabForos.Text = "Foros";
-            this.tabForos.UseVisualStyleBackColor = true;
-            // 
-            // labelProfe
-            // 
-            this.labelProfe.AutoSize = true;
-            this.labelProfe.Location = new System.Drawing.Point(44, 72);
-            this.labelProfe.Name = "labelProfe";
-            this.labelProfe.Size = new System.Drawing.Size(10, 13);
-            this.labelProfe.TabIndex = 2;
-            this.labelProfe.Text = " ";
             // 
             // dataGridTareas
             // 
@@ -223,6 +204,26 @@
             this.dataGridTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
             this.dataGridTareas.TabIndex = 2;
+            // 
+            // tabCalificaciones
+            // 
+            this.tabCalificaciones.Location = new System.Drawing.Point(4, 22);
+            this.tabCalificaciones.Name = "tabCalificaciones";
+            this.tabCalificaciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCalificaciones.Size = new System.Drawing.Size(614, 428);
+            this.tabCalificaciones.TabIndex = 1;
+            this.tabCalificaciones.Text = "Calificaciones";
+            this.tabCalificaciones.UseVisualStyleBackColor = true;
+            // 
+            // tabForos
+            // 
+            this.tabForos.Location = new System.Drawing.Point(4, 22);
+            this.tabForos.Name = "tabForos";
+            this.tabForos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabForos.Size = new System.Drawing.Size(614, 428);
+            this.tabForos.TabIndex = 3;
+            this.tabForos.Text = "Foros";
+            this.tabForos.UseVisualStyleBackColor = true;
             // 
             // FormCursos
             // 
