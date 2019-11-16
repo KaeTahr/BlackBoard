@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMain.Designer.cs">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGrades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,18 @@
     <Compile Include="FormMainStudent.Designer.cs">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsProfesor\FormCrearTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormCrearTrabajo.Designer.cs">
+      <DependentUpon>FormCrearTrabajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsProfesor\FormProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormProfessor.Designer.cs">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnector.cs" />
@@ -110,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMainStudent.resx">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormCrearTrabajo.resx">
+      <DependentUpon>FormCrearTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormProfessor.resx">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,9 +162,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db\bb.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="db\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

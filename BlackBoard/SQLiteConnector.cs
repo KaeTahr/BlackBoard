@@ -30,7 +30,7 @@ namespace BlackBoard
             my_connect= new SQLiteConnection(chain);
             my_connect.Open();
             my_cmd = my_connect.CreateCommand();
-            my_txn = my_connect.BeginTransaction(System.Data.IsolationLevel.Serializable);
+            my_txn = my_connect.BeginTransaction();
             isOpen = true;
         }
 
@@ -83,7 +83,7 @@ namespace BlackBoard
 
 
         }
-
+        
         /// <summary>
         /// Sends a non-query command to the database.
         /// </summary>

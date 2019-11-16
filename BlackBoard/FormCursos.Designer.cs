@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStart = new System.Windows.Forms.TabPage();
+            this.labelProfe = new System.Windows.Forms.Label();
             this.labelDesc = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabTareas = new System.Windows.Forms.TabPage();
             this.tabCalificaciones = new System.Windows.Forms.TabPage();
             this.tabForos = new System.Windows.Forms.TabPage();
-            this.labelProfe = new System.Windows.Forms.Label();
             this.dataGridTareas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -67,7 +66,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(832, 454);
             this.splitContainer1.SplitterDistance = 206;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabIndex = 99999999;
+            this.splitContainer1.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -92,8 +92,10 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -101,7 +103,9 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(206, 454);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.TabIndex = 999;
+            this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tabControl1
@@ -125,10 +129,19 @@
             this.tabStart.Location = new System.Drawing.Point(4, 22);
             this.tabStart.Name = "tabStart";
             this.tabStart.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStart.Size = new System.Drawing.Size(574, 403);
+            this.tabStart.Size = new System.Drawing.Size(614, 428);
             this.tabStart.TabIndex = 2;
             this.tabStart.Text = "Información General";
             this.tabStart.UseVisualStyleBackColor = true;
+            // 
+            // labelProfe
+            // 
+            this.labelProfe.AutoSize = true;
+            this.labelProfe.Location = new System.Drawing.Point(44, 72);
+            this.labelProfe.Name = "labelProfe";
+            this.labelProfe.Size = new System.Drawing.Size(10, 13);
+            this.labelProfe.TabIndex = 1;
+            this.labelProfe.Text = " ";
             // 
             // labelDesc
             // 
@@ -137,7 +150,7 @@
             this.labelDesc.Location = new System.Drawing.Point(43, 114);
             this.labelDesc.Name = "labelDesc";
             this.labelDesc.Size = new System.Drawing.Size(305, 20);
-            this.labelDesc.TabIndex = 1;
+            this.labelDesc.TabIndex = 2;
             this.labelDesc.Text = " Información del curso será mostrada aquí";
             // 
             // labelTitle
@@ -149,6 +162,7 @@
             this.labelTitle.Size = new System.Drawing.Size(355, 39);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Seleccione un Curso";
+            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // tabTareas
             // 
@@ -166,7 +180,7 @@
             this.tabCalificaciones.Location = new System.Drawing.Point(4, 22);
             this.tabCalificaciones.Name = "tabCalificaciones";
             this.tabCalificaciones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCalificaciones.Size = new System.Drawing.Size(627, 428);
+            this.tabCalificaciones.Size = new System.Drawing.Size(614, 428);
             this.tabCalificaciones.TabIndex = 1;
             this.tabCalificaciones.Text = "Calificaciones";
             this.tabCalificaciones.UseVisualStyleBackColor = true;
@@ -176,53 +190,22 @@
             this.tabForos.Location = new System.Drawing.Point(4, 22);
             this.tabForos.Name = "tabForos";
             this.tabForos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabForos.Size = new System.Drawing.Size(627, 428);
+            this.tabForos.Size = new System.Drawing.Size(614, 428);
             this.tabForos.TabIndex = 3;
             this.tabForos.Text = "Foros";
             this.tabForos.UseVisualStyleBackColor = true;
-            // 
-            // labelProfe
-            // 
-            this.labelProfe.AutoSize = true;
-            this.labelProfe.Location = new System.Drawing.Point(44, 72);
-            this.labelProfe.Name = "labelProfe";
-            this.labelProfe.Size = new System.Drawing.Size(10, 13);
-            this.labelProfe.TabIndex = 2;
-            this.labelProfe.Text = " ";
             // 
             // dataGridTareas
             // 
             this.dataGridTareas.AllowUserToAddRows = false;
             this.dataGridTareas.AllowUserToDeleteRows = false;
-            this.dataGridTareas.AllowUserToResizeColumns = false;
-            this.dataGridTareas.AllowUserToResizeRows = false;
-            this.dataGridTareas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridTareas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridTareas.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTareas.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridTareas.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridTareas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridTareas.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridTareas.Location = new System.Drawing.Point(3, 3);
             this.dataGridTareas.Name = "dataGridTareas";
             this.dataGridTareas.ReadOnly = true;
-            this.dataGridTareas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridTareas.RowHeadersVisible = false;
-            this.dataGridTareas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
-            this.dataGridTareas.TabIndex = 2;
+            this.dataGridTareas.TabIndex = 0;
             // 
             // FormCursos
             // 
