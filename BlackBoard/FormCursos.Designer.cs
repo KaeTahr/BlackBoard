@@ -67,7 +67,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Size = new System.Drawing.Size(832, 454);
             this.splitContainer1.SplitterDistance = 206;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabIndex = 99999999;
+            this.splitContainer1.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -92,8 +93,10 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -101,7 +104,8 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(206, 454);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.TabIndex = 999;
+            this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tabControl1
@@ -136,7 +140,7 @@
             this.labelProfe.Location = new System.Drawing.Point(44, 72);
             this.labelProfe.Name = "labelProfe";
             this.labelProfe.Size = new System.Drawing.Size(10, 13);
-            this.labelProfe.TabIndex = 2;
+            this.labelProfe.TabIndex = 1;
             this.labelProfe.Text = " ";
             // 
             // labelDesc
@@ -146,7 +150,7 @@
             this.labelDesc.Location = new System.Drawing.Point(43, 114);
             this.labelDesc.Name = "labelDesc";
             this.labelDesc.Size = new System.Drawing.Size(305, 20);
-            this.labelDesc.TabIndex = 1;
+            this.labelDesc.TabIndex = 2;
             this.labelDesc.Text = " Información del curso será mostrada aquí";
             // 
             // labelTitle

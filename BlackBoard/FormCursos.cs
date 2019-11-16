@@ -16,6 +16,8 @@ namespace BlackBoard
         SQLiteConnector con;
         FormMainStudent parent;
         string selectedCourse;
+        Color SelectedCellForeground;
+        Color SelectedCellBackground;
 
         public FormCursos(FormMainStudent m, string idStudent)
         {
@@ -25,6 +27,7 @@ namespace BlackBoard
             this.idStudent = idStudent;
             FillDataGridView();
             parent = m;
+            selectedCourse = "";
         }
 
         private void FillDataGridView()
@@ -38,13 +41,20 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
             con.Close();
             dataGridView1.Columns[1].Visible = false;
 
-            
-            
+            dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = null;
+            SelectedCellForeground = dataGridView1.DefaultCellStyle.SelectionForeColor;
+            SelectedCellBackground = dataGridView1.DefaultCellStyle.SelectionBackColor;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
+
+
         }
 
         private void FormCursos_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.ClearSelection();         
+            dataGridView1.CurrentCell = null;
         }
 
         private void FormCursos_FormClosed(object sender, FormClosedEventArgs e)
@@ -54,6 +64,9 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            dataGridView1.DefaultCellStyle.SelectionBackColor = SelectedCellBackground;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = SelectedCellForeground;
             selectedCourse = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             labelTitle.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
           
@@ -73,7 +86,7 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         private void dataGridTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 }
