@@ -53,13 +53,18 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         private void FillHWDataGridView()
         {
-            string sql = @"select a.name, a.description,ass.grade from assignment a
+            string sql = @"select a.name as Nombre, a.description,ass.grade as Calificación, ass.completed as Entregado from assignment a
                 inner join assignment_student ass on ass.idAssignment=a.idAssignment
                 where idStudent={0} and a.idCourse={1};";
             con.Open();
             dataGridTareas.DataSource = con.SelectTable(string.Format(sql, idStudent, selectedCourse));
             con.Close();
 
+            dataGridTareas.ReadOnly = false;
+            for(int i = 0; i<3;i++)
+            {
+                dataGridTareas.Columns[i].ReadOnly = true;
+            }
         }
 
         private void FormCursos_Load(object sender, EventArgs e)
@@ -98,7 +103,7 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         private void dataGridTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+           //TODO: Implement logic detecting if checkbox was checked 
         }
     }
 }

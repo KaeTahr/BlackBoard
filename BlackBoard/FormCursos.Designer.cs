@@ -37,9 +37,9 @@
             this.labelDesc = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabTareas = new System.Windows.Forms.TabPage();
+            this.dataGridTareas = new System.Windows.Forms.DataGridView();
             this.tabCalificaciones = new System.Windows.Forms.TabPage();
             this.tabForos = new System.Windows.Forms.TabPage();
-            this.dataGridTareas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -175,6 +175,18 @@
             this.tabTareas.Text = "Tareas";
             this.tabTareas.UseVisualStyleBackColor = true;
             // 
+            // dataGridTareas
+            // 
+            this.dataGridTareas.AllowUserToAddRows = false;
+            this.dataGridTareas.AllowUserToDeleteRows = false;
+            this.dataGridTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTareas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridTareas.Location = new System.Drawing.Point(3, 3);
+            this.dataGridTareas.MultiSelect = false;
+            this.dataGridTareas.Name = "dataGridTareas";
+            this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
+            this.dataGridTareas.TabIndex = 0;
+            // 
             // tabCalificaciones
             // 
             this.tabCalificaciones.Location = new System.Drawing.Point(4, 22);
@@ -194,18 +206,6 @@
             this.tabForos.TabIndex = 3;
             this.tabForos.Text = "Foros";
             this.tabForos.UseVisualStyleBackColor = true;
-            // 
-            // dataGridTareas
-            // 
-            this.dataGridTareas.AllowUserToAddRows = false;
-            this.dataGridTareas.AllowUserToDeleteRows = false;
-            this.dataGridTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTareas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridTareas.Location = new System.Drawing.Point(3, 3);
-            this.dataGridTareas.Name = "dataGridTareas";
-            this.dataGridTareas.ReadOnly = true;
-            this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
-            this.dataGridTareas.TabIndex = 0;
             // 
             // FormCursos
             // 
