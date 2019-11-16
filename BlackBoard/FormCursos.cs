@@ -51,6 +51,17 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         }
 
+        private void FillHWDataGridView()
+        {
+            string sql = @"select a.name, a.description,ass.grade from assignment a
+                inner join assignment_student ass on ass.idAssignment=a.idAssignment
+                where idStudent={0} and a.idCourse={1};";
+            con.Open();
+            dataGridTareas.DataSource = con.SelectTable(string.Format(sql, idStudent, selectedCourse));
+            con.Close();
+
+        }
+
         private void FormCursos_Load(object sender, EventArgs e)
         {
             dataGridView1.ClearSelection();         
@@ -75,7 +86,8 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
             labelDesc.Text = con.SelectSingle(sql);
             labelProfe.Text = "Prof. " + con.SelectSingle("select p.lastname from professor p inner join course c on c.idprofessor = p.idprofessor where c.idCourse=" + selectedCourse + ";");
             con.Close();
-            
+
+            FillHWDataGridView();
 
         }
 

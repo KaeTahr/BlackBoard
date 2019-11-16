@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -38,9 +37,9 @@
             this.labelDesc = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabTareas = new System.Windows.Forms.TabPage();
-            this.dataGridTareas = new System.Windows.Forms.DataGridView();
             this.tabCalificaciones = new System.Windows.Forms.TabPage();
             this.tabForos = new System.Windows.Forms.TabPage();
+            this.dataGridTareas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -106,6 +105,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(206, 454);
             this.dataGridView1.TabIndex = 999;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tabControl1
@@ -175,41 +175,6 @@
             this.tabTareas.Text = "Tareas";
             this.tabTareas.UseVisualStyleBackColor = true;
             // 
-            // dataGridTareas
-            // 
-            this.dataGridTareas.AllowUserToAddRows = false;
-            this.dataGridTareas.AllowUserToDeleteRows = false;
-            this.dataGridTareas.AllowUserToResizeColumns = false;
-            this.dataGridTareas.AllowUserToResizeRows = false;
-            this.dataGridTareas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridTareas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridTareas.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridTareas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridTareas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTareas.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridTareas.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridTareas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridTareas.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridTareas.Location = new System.Drawing.Point(3, 3);
-            this.dataGridTareas.Name = "dataGridTareas";
-            this.dataGridTareas.ReadOnly = true;
-            this.dataGridTareas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridTareas.RowHeadersVisible = false;
-            this.dataGridTareas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridTareas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
-            this.dataGridTareas.TabIndex = 2;
-            this.dataGridTareas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTareas_CellContentClick);
-            // 
             // tabCalificaciones
             // 
             this.tabCalificaciones.Location = new System.Drawing.Point(4, 22);
@@ -229,6 +194,18 @@
             this.tabForos.TabIndex = 3;
             this.tabForos.Text = "Foros";
             this.tabForos.UseVisualStyleBackColor = true;
+            // 
+            // dataGridTareas
+            // 
+            this.dataGridTareas.AllowUserToAddRows = false;
+            this.dataGridTareas.AllowUserToDeleteRows = false;
+            this.dataGridTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridTareas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridTareas.Location = new System.Drawing.Point(3, 3);
+            this.dataGridTareas.Name = "dataGridTareas";
+            this.dataGridTareas.ReadOnly = true;
+            this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
+            this.dataGridTareas.TabIndex = 0;
             // 
             // FormCursos
             // 
