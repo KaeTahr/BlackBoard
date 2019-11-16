@@ -65,6 +65,16 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
             {
                 dataGridTareas.Columns[i].ReadOnly = true;
             }
+
+
+            //disable editing on cells that are enabled
+            foreach(DataGridViewRow r in dataGridTareas.Rows)
+            {
+                if(Convert.ToBoolean(r.Cells[3].Value)==true)
+                {
+                    r.Cells[3].ReadOnly = true;
+                }
+            }
         }
 
         private void FormCursos_Load(object sender, EventArgs e)
@@ -96,14 +106,46 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         }
 
-        private void labelTitle_Click(object sender, EventArgs e)
+        private void dataGridTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           if(e.ColumnIndex== 3 && e.RowIndex != -1)
+            {
+                DataGridViewCell tmp = dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                bool saveChange = false;
+                if (!Convert.ToBoolean(tmp.Value))
+                {
+                    DialogResult dr = MessageBox.Show("¿Desea entregar la siguiente tarea?:\n" + dataGridTareas.Rows[e.RowIndex].Cells[0].Value.ToString()
+                        , "Confirmar Entrega", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        saveChange = true;
+                        tmp.ReadOnly = true;
+                        MessageBox.Show("Tarea entregada exitosamente.", "Tarea Enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Entrega cancelada.");
+                        tmp.Value = false;
+                        dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                    }
+                    if(!saveChange)
+                    {
+                        tmp.Value = false;
+                        dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
+                    }
+                    dataGridTareas.EndEdit();
+                }
+            }
 
         }
 
-        private void dataGridTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridTareas_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-           //TODO: Implement logic detecting if checkbox was checked 
+           /* if (e.ColumnIndex == 3 && e.RowIndex != -1)
+            {
+                dataGridTareas.EndEdit();
+            }*/
+
         }
     }
 }

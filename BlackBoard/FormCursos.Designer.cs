@@ -77,7 +77,7 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -162,7 +162,6 @@
             this.labelTitle.Size = new System.Drawing.Size(355, 39);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Seleccione un Curso";
-            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // tabTareas
             // 
@@ -186,6 +185,8 @@
             this.dataGridTareas.Name = "dataGridTareas";
             this.dataGridTareas.Size = new System.Drawing.Size(608, 422);
             this.dataGridTareas.TabIndex = 0;
+            this.dataGridTareas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTareas_CellContentClick);
+            this.dataGridTareas.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridTareas_CellMouseUp);
             // 
             // tabCalificaciones
             // 
