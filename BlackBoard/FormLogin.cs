@@ -74,7 +74,8 @@ namespace BlackBoard
             }
             catch (System.Data.SQLite.SQLiteException err)
             {
-                MessageBox.Show(err.Message.ToString());
+                //MessageBox.Show(err.Message.ToString());
+                Console.WriteLine(err.Message);
             }
             catch (System.IndexOutOfRangeException)
             {

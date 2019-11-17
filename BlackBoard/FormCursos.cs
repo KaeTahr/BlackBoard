@@ -53,12 +53,14 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
 
         private void FillHWDataGridView()
         {
-            string sql = @"select a.name as Nombre, a.description,ass.grade as Calificación, ass.completed as Entregado from assignment a
+            string sql = @"select a.name as Nombre, a.description,ass.grade as Calificación, ass.completed, ass.idAssignment as Entregado from assignment a
                 inner join assignment_student ass on ass.idAssignment=a.idAssignment
                 where idStudent={0} and a.idCourse={1};";
             con.Open();
             dataGridTareas.DataSource = con.SelectTable(string.Format(sql, idStudent, selectedCourse));
             con.Close();
+
+            dataGridTareas.Columns[4].Visible = false;
 
             dataGridTareas.ReadOnly = false;
             for(int i = 0; i<3;i++)
@@ -73,8 +75,22 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
                 if(Convert.ToBoolean(r.Cells[3].Value)==true)
                 {
                     r.Cells[3].ReadOnly = true;
+                    if(r.Cells[2].Value.ToString()=="")
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else if(r.Cells[2].Value.ToString()=="0")
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Green;
+                    }
                 }
             }
+
+
         }
 
         private void FormCursos_Load(object sender, EventArgs e)
@@ -121,13 +137,20 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
                         tmp.ReadOnly = true;
                         MessageBox.Show("Tarea entregada exitosamente.", "Tarea Enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //TODO:update db with hw turned in
+                        string sql = "update assignment_student set completed = true where idStudent={0} and idAssignment={1};";
+                        con.Open();
+                        con.Command(String.Format(sql,idStudent,dataGridTareas.Rows[e.RowIndex].Cells[4].Value.ToString()));
+                        con.Close();
+
+
+
                     }
                     else
                     {
-                        FillHWDataGridView();
                         MessageBox.Show("Entrega cancelada.");
                     }
                     dataGridTareas.EndEdit();
+                    FillHWDataGridView();
                 }
             }
 
