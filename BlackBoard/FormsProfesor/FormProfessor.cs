@@ -82,6 +82,33 @@ namespace BlackBoard.FormsProfesor
             dataGridView1.DefaultCellStyle.SelectionBackColor = SelectedCellBackground;
             dataGridView1.DefaultCellStyle.SelectionForeColor = SelectedCellForeground;
             selectedCourse = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            fillDataGridAssignment();
+        }
+
+        private void fillDataGridAssignment()
+        {
+            string sql = "select idAssignment, name as Título from assignment where idCourse = "+ selectedCourse + ";";
+            con.Open();
+            dataGridAssignments.DataSource = con.SelectTable(sql);
+            con.Close();
+            dataGridAssignments.Columns[0].Visible = false;
+
+            //TODO: First assignment still appears as selected on start
+            //not too bit of a problem since a student selected doesn't really mean anything
+            //but may or may not want to fix this
+            SelectedCellForeground = dataGridAssignments.DefaultCellStyle.SelectionForeColor;
+            SelectedCellBackground = dataGridAssignments.DefaultCellStyle.SelectionBackColor;
+            dataGridAssignments.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
+            dataGridAssignments.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
+        }
+
+        private void dataGridAssignment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string selectedAssignment = dataGridAssignments.SelectedRows[0].Cells[0].Value.ToString();
+            string name = dataGridAssignments.SelectedRows[0].Cells[1].Value.ToString();
+            FormRevisar ct = new FormRevisar(selectedAssignment,name);
+            ct.Show();
+
         }
     }
 }

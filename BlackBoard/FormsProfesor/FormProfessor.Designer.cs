@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabGeneral = new System.Windows.Forms.TabPage();
-            this.tabTareas = new System.Windows.Forms.TabPage();
-            this.tabForos = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonEnviar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabTareas = new System.Windows.Forms.TabPage();
+            this.dataGridAssignments = new System.Windows.Forms.DataGridView();
             this.buttonCrear_HW = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabForos = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tabTareas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAssignments)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -65,6 +67,44 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(205, 450);
+            this.dataGridView1.TabIndex = 1000;
+            this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // tabControl1
             // 
@@ -91,35 +131,14 @@
             this.tabGeneral.Text = "Información general";
             this.tabGeneral.UseVisualStyleBackColor = true;
             // 
-            // tabTareas
+            // buttonEnviar
             // 
-            this.tabTareas.Controls.Add(this.buttonCrear_HW);
-            this.tabTareas.Location = new System.Drawing.Point(4, 22);
-            this.tabTareas.Name = "tabTareas";
-            this.tabTareas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTareas.Size = new System.Drawing.Size(583, 424);
-            this.tabTareas.TabIndex = 0;
-            this.tabTareas.Text = "Calificar";
-            this.tabTareas.UseVisualStyleBackColor = true;
-            // 
-            // tabForos
-            // 
-            this.tabForos.Location = new System.Drawing.Point(4, 22);
-            this.tabForos.Name = "tabForos";
-            this.tabForos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabForos.Size = new System.Drawing.Size(583, 424);
-            this.tabForos.TabIndex = 1;
-            this.tabForos.Text = "Calificaciones";
-            this.tabForos.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Seleccione un curso";
+            this.buttonEnviar.Location = new System.Drawing.Point(358, 293);
+            this.buttonEnviar.Name = "buttonEnviar";
+            this.buttonEnviar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEnviar.TabIndex = 2;
+            this.buttonEnviar.Text = "Enviar";
+            this.buttonEnviar.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -130,18 +149,44 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Escriba la descripción del curso aquí";
             // 
-            // buttonEnviar
+            // label1
             // 
-            this.buttonEnviar.Location = new System.Drawing.Point(358, 293);
-            this.buttonEnviar.Name = "buttonEnviar";
-            this.buttonEnviar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEnviar.TabIndex = 2;
-            this.buttonEnviar.Text = "Enviar";
-            this.buttonEnviar.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Seleccione un curso";
+            // 
+            // tabTareas
+            // 
+            this.tabTareas.Controls.Add(this.dataGridAssignments);
+            this.tabTareas.Controls.Add(this.buttonCrear_HW);
+            this.tabTareas.Location = new System.Drawing.Point(4, 22);
+            this.tabTareas.Name = "tabTareas";
+            this.tabTareas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTareas.Size = new System.Drawing.Size(583, 424);
+            this.tabTareas.TabIndex = 0;
+            this.tabTareas.Text = "Calificar";
+            this.tabTareas.UseVisualStyleBackColor = true;
+            // 
+            // dataGridAssignments
+            // 
+            this.dataGridAssignments.AllowUserToAddRows = false;
+            this.dataGridAssignments.AllowUserToDeleteRows = false;
+            this.dataGridAssignments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAssignments.Location = new System.Drawing.Point(41, 25);
+            this.dataGridAssignments.MultiSelect = false;
+            this.dataGridAssignments.Name = "dataGridAssignments";
+            this.dataGridAssignments.ReadOnly = true;
+            this.dataGridAssignments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridAssignments.Size = new System.Drawing.Size(490, 321);
+            this.dataGridAssignments.TabIndex = 1;
+            this.dataGridAssignments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAssignment_CellContentClick);
             // 
             // buttonCrear_HW
             // 
-            this.buttonCrear_HW.Location = new System.Drawing.Point(459, 376);
+            this.buttonCrear_HW.Location = new System.Drawing.Point(476, 379);
             this.buttonCrear_HW.Name = "buttonCrear_HW";
             this.buttonCrear_HW.Size = new System.Drawing.Size(75, 23);
             this.buttonCrear_HW.TabIndex = 0;
@@ -149,43 +194,15 @@
             this.buttonCrear_HW.UseVisualStyleBackColor = true;
             this.buttonCrear_HW.Click += new System.EventHandler(this.buttonCrear_HW_Click);
             // 
-            // dataGridView1
+            // tabForos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(205, 450);
-            this.dataGridView1.TabIndex = 1000;
-            this.dataGridView1.TabStop = false;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.tabForos.Location = new System.Drawing.Point(4, 22);
+            this.tabForos.Name = "tabForos";
+            this.tabForos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabForos.Size = new System.Drawing.Size(583, 424);
+            this.tabForos.TabIndex = 1;
+            this.tabForos.Text = "Calificaciones";
+            this.tabForos.UseVisualStyleBackColor = true;
             // 
             // FormProfessor
             // 
@@ -201,11 +218,12 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
             this.tabGeneral.PerformLayout();
             this.tabTareas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAssignments)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,5 +240,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonCrear_HW;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridAssignments;
     }
 }
