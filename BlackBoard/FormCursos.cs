@@ -110,28 +110,22 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
         {
            if(e.ColumnIndex== 3 && e.RowIndex != -1)
             {
-                DataGridViewCell tmp = dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                bool saveChange = false;
+                //DataGridViewCell tmp = dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewCheckBoxCell tmp = (DataGridViewCheckBoxCell) dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (!Convert.ToBoolean(tmp.Value))
                 {
                     DialogResult dr = MessageBox.Show("¿Desea entregar la siguiente tarea?:\n" + dataGridTareas.Rows[e.RowIndex].Cells[0].Value.ToString()
                         , "Confirmar Entrega", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
-                        saveChange = true;
                         tmp.ReadOnly = true;
                         MessageBox.Show("Tarea entregada exitosamente.", "Tarea Enviada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //TODO:update db with hw turned in
                     }
                     else
                     {
+                        FillHWDataGridView();
                         MessageBox.Show("Entrega cancelada.");
-                        tmp.Value = false;
-                        dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
-                    }
-                    if(!saveChange)
-                    {
-                        tmp.Value = false;
-                        dataGridTareas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = false;
                     }
                     dataGridTareas.EndEdit();
                 }
