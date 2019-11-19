@@ -25,7 +25,7 @@ namespace BlackBoard.FormsProfesor
             fillDataGridTrabajos();
         }
 
-        void fillDataGridTrabajos()
+        public void fillDataGridTrabajos()
         {
 
             string sql = @"select ass.idStudent as Matricula, s.firstname as Nombre, s.lastname as Apellido, ass.completed as Entregado, ass.grade as Calificación
@@ -38,6 +38,16 @@ where idAssignment = " + idAssignment;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["Entregado"].Value) == true)
+            {
+                string idStudent = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                FormEnviarCal ec = new FormEnviarCal(idStudent, idAssignment,this);
+                ec.Show();
+            }
+            else
+            {
+                MessageBox.Show("El trabajo no ha sido entregado");
+            }
         }
         void setTitle()
         {

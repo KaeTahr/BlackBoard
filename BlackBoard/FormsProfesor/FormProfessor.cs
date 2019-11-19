@@ -61,7 +61,7 @@ namespace BlackBoard.FormsProfesor
                 MessageBox.Show("Seleccione un curso.","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
-            FormCrearTrabajo ct = new FormCrearTrabajo(selectedCourse);
+            FormCrearTrabajo ct = new FormCrearTrabajo(selectedCourse, this);
             ct.Show();
         }
         private void FillDataGridView()
@@ -85,7 +85,7 @@ namespace BlackBoard.FormsProfesor
             fillDataGridAssignment();
         }
 
-        private void fillDataGridAssignment()
+        public void fillDataGridAssignment()
         {
             string sql = "select idAssignment, name as Título from assignment where idCourse = "+ selectedCourse + ";";
             con.Open();

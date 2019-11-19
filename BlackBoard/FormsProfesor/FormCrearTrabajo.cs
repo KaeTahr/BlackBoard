@@ -14,11 +14,13 @@ namespace BlackBoard.FormsProfesor
     {
         string idCourse;
         SQLiteConnector con;
-        public FormCrearTrabajo(string idCourse)
+        FormProfessor parent;
+        public FormCrearTrabajo(string idCourse, FormProfessor p)
         {
             InitializeComponent();
             this.idCourse = idCourse;
             con = new SQLiteConnector();
+            parent = p;
         }
 
         private void buttonEnviar_Click(object sender, EventArgs e)
@@ -71,6 +73,7 @@ namespace BlackBoard.FormsProfesor
             {
                 con.Close();
             }
+            parent.fillDataGridAssignment();
             this.Close();
         }
     }

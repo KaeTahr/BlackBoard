@@ -96,6 +96,12 @@
     <Compile Include="FormMainStudent.Designer.cs">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsProfesor\FormEnviarCal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormEnviarCal.Designer.cs">
+      <DependentUpon>FormEnviarCal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsProfesor\FormRevisar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMainStudent.resx">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormEnviarCal.resx">
+      <DependentUpon>FormEnviarCal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsProfesor\FormCrearTrabajo.resx">
       <DependentUpon>FormCrearTrabajo.cs</DependentUpon>
