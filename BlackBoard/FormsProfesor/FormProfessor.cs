@@ -106,7 +106,7 @@ namespace BlackBoard.FormsProfesor
         {
             string selectedAssignment = dataGridAssignments.SelectedRows[0].Cells[0].Value.ToString();
             string name = dataGridAssignments.SelectedRows[0].Cells[1].Value.ToString();
-            FormRevisar ct = new FormRevisar(selectedAssignment,name);
+            FormRevisar ct = new FormRevisar(selectedAssignment,name, this);
             ct.Show();
 
         }

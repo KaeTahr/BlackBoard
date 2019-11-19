@@ -12,9 +12,23 @@ namespace BlackBoard.Admin
 {
     public partial class AdminMain : Form
     {
+        bool isCuentasOpen;
+        bool isCursosOpen;
         public AdminMain()
         {
+            isCuentasOpen = isCursosOpen = false;
             InitializeComponent();
+        }
+
+        private void cuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!isCuentasOpen)
+            {
+                isCuentasOpen = true;
+                FormCuentas fc = new FormCuentas();
+                fc.Show();
+            }
+
         }
     }
 }

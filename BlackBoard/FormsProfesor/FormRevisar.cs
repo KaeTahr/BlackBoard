@@ -15,7 +15,8 @@ namespace BlackBoard.FormsProfesor
         string idAssignment;
         string AssignmentName;
         SQLiteConnector con;
-        public FormRevisar(string idAssignment, string AssName)
+        FormProfessor parent;
+        public FormRevisar(string idAssignment, string AssName, FormProfessor parent)
         {
             InitializeComponent();
             this.idAssignment = idAssignment;
@@ -23,6 +24,8 @@ namespace BlackBoard.FormsProfesor
             setTitle();
             con = new SQLiteConnector();
             fillDataGridTrabajos();
+            this.parent = parent;
+
         }
 
         public void fillDataGridTrabajos()
@@ -55,5 +58,20 @@ where idAssignment = " + idAssignment;
             this.Text = "BlackBoard |  " + AssignmentName;
         }
 
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("¿Desea eliminar este trabajo?" 
+                        , "Confirmar Calificación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                con.Open();
+                con.Command("delete from assignment_student where idAssignment = " + idAssignment + ";");
+                con.Command("delete from Assignment where idAssignment = " + idAssignment + ";");
+                con.Close();
+                parent.fillDataGridAssignment();
+                this.Close();
+            }
+
+        }
     }
 }
