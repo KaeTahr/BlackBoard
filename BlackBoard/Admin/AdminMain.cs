@@ -14,10 +14,12 @@ namespace BlackBoard.Admin
     {
         bool isCuentasOpen;
         bool isCursosOpen;
-        public AdminMain()
+        FormLogin login;
+        public AdminMain(FormLogin l)
         {
             isCuentasOpen = isCursosOpen = false;
             InitializeComponent();
+            login = l;
         }
 
         private void cuentasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,9 +28,16 @@ namespace BlackBoard.Admin
             {
                 isCuentasOpen = true;
                 FormCuentas fc = new FormCuentas();
+                fc.MdiParent = this;
                 fc.Show();
             }
 
+        }
+
+        private void AdminMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            login.Show();
+            login.ClearPassword();
         }
     }
 }

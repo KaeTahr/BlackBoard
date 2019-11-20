@@ -50,7 +50,7 @@ namespace BlackBoard
                     if (con.SelectSingle(sql) == "")
                     {
                         con.Close();
-                        FormMainStudent main = new FormMainStudent(this, idAccount); // TODO: implemenent admin screen
+                        Admin.AdminMain main = new Admin.AdminMain(this); // TODO: implemenent admin screen
                         main.Show();
                     }
                     else

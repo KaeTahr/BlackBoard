@@ -17,12 +17,42 @@ namespace BlackBoard.Admin
         {
             InitializeComponent();
             con = new SQLiteConnector();
+            fillGrids();
         }
 
-        void fillStudents()
+        public void fillGrids()
         {
-            string sql;
-            //TODO decide if you will kee working on this thing
+            string sql = @"select s.idStudent as Matrícula, s.firstname as Nombre, s.lastname as Apellido, a.username as Cuenta
+    from student s left join Account a on a.idStudent = s.idStudent;";
+            con.Open();
+            dataGridStudents.DataSource = con.SelectTable(sql);
+
+            sql = @"select s.idProfessor as Matrícula, s.firstname as Nombre, s.lastname as Apellido, a.username as Cuenta
+    from professor s left join Account a on a.idProfessor = s.idProfessor;";
+            dataGridProfessors.DataSource = con.SelectTable(sql);
+            con.Close();
+        }
+
+        private void buttonCrear_Click(object sender, EventArgs e)
+        {
+            FormAddAcc ac = new FormAddAcc(this);
+            ac.Show();
+        }
+
+        private void dataGridProfessors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string idProfessor = dataGridProfessors.SelectedRows[0].Cells["Matrícula"].Value.ToString();
+            FormAddAcc ac = new FormAddAcc(this, idProfessor, "professor");
+            ac.Show();
+            
+        }
+
+        private void dataGridStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            string idStudent = dataGridStudents.SelectedRows[0].Cells["Matrícula"].Value.ToString();
+            FormAddAcc ac = new FormAddAcc(this, idStudent, "student");
+            ac.Show();
         }
     }
 }

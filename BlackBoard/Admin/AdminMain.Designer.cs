@@ -68,6 +68,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminMain";
             this.Text = "Blackboard | Admin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminMain_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

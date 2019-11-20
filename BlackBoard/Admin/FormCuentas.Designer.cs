@@ -30,14 +30,20 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEstudiantes = new System.Windows.Forms.TabPage();
-            this.tabProfesores = new System.Windows.Forms.TabPage();
             this.dataGridStudents = new System.Windows.Forms.DataGridView();
+            this.tabProfesores = new System.Windows.Forms.TabPage();
             this.dataGridProfessors = new System.Windows.Forms.DataGridView();
+            this.buttonCrear = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1.SuspendLayout();
             this.tabEstudiantes.SuspendLayout();
-            this.tabProfesores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudents)).BeginInit();
+            this.tabProfesores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProfessors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -48,7 +54,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(947, 513);
             this.tabControl1.TabIndex = 1;
             // 
             // tabEstudiantes
@@ -57,10 +63,24 @@
             this.tabEstudiantes.Location = new System.Drawing.Point(4, 22);
             this.tabEstudiantes.Name = "tabEstudiantes";
             this.tabEstudiantes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstudiantes.Size = new System.Drawing.Size(792, 424);
+            this.tabEstudiantes.Size = new System.Drawing.Size(939, 487);
             this.tabEstudiantes.TabIndex = 0;
             this.tabEstudiantes.Text = "Estudiantes";
             this.tabEstudiantes.UseVisualStyleBackColor = true;
+            // 
+            // dataGridStudents
+            // 
+            this.dataGridStudents.AllowUserToAddRows = false;
+            this.dataGridStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridStudents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridStudents.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridStudents.Location = new System.Drawing.Point(3, 3);
+            this.dataGridStudents.MultiSelect = false;
+            this.dataGridStudents.Name = "dataGridStudents";
+            this.dataGridStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridStudents.Size = new System.Drawing.Size(933, 481);
+            this.dataGridStudents.TabIndex = 0;
+            this.dataGridStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStudents_CellDoubleClick);
             // 
             // tabProfesores
             // 
@@ -68,21 +88,10 @@
             this.tabProfesores.Location = new System.Drawing.Point(4, 22);
             this.tabProfesores.Name = "tabProfesores";
             this.tabProfesores.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProfesores.Size = new System.Drawing.Size(792, 424);
+            this.tabProfesores.Size = new System.Drawing.Size(939, 487);
             this.tabProfesores.TabIndex = 1;
             this.tabProfesores.Text = "Profesores";
             this.tabProfesores.UseVisualStyleBackColor = true;
-            // 
-            // dataGridStudents
-            // 
-            this.dataGridStudents.AllowUserToAddRows = false;
-            this.dataGridStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridStudents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridStudents.Location = new System.Drawing.Point(3, 3);
-            this.dataGridStudents.Name = "dataGridStudents";
-            this.dataGridStudents.ReadOnly = true;
-            this.dataGridStudents.Size = new System.Drawing.Size(786, 418);
-            this.dataGridStudents.TabIndex = 0;
             // 
             // dataGridProfessors
             // 
@@ -93,22 +102,56 @@
             this.dataGridProfessors.Location = new System.Drawing.Point(3, 3);
             this.dataGridProfessors.Name = "dataGridProfessors";
             this.dataGridProfessors.ReadOnly = true;
-            this.dataGridProfessors.Size = new System.Drawing.Size(786, 418);
+            this.dataGridProfessors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridProfessors.Size = new System.Drawing.Size(933, 481);
             this.dataGridProfessors.TabIndex = 0;
+            this.dataGridProfessors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProfessors_CellDoubleClick);
+            // 
+            // buttonCrear
+            // 
+            this.buttonCrear.Location = new System.Drawing.Point(7, 12);
+            this.buttonCrear.Name = "buttonCrear";
+            this.buttonCrear.Size = new System.Drawing.Size(154, 23);
+            this.buttonCrear.TabIndex = 1;
+            this.buttonCrear.Text = "Crear Cuenta";
+            this.buttonCrear.UseVisualStyleBackColor = true;
+            this.buttonCrear.Click += new System.EventHandler(this.buttonCrear_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.buttonCrear);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Size = new System.Drawing.Size(947, 577);
+            this.splitContainer1.SplitterDistance = 60;
+            this.splitContainer1.TabIndex = 2;
             // 
             // FormCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(947, 577);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "FormCuentas";
             this.Text = "Cuentas";
             this.tabControl1.ResumeLayout(false);
             this.tabEstudiantes.ResumeLayout(false);
-            this.tabProfesores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudents)).EndInit();
+            this.tabProfesores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProfessors)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -120,5 +163,7 @@
         private System.Windows.Forms.DataGridView dataGridStudents;
         private System.Windows.Forms.TabPage tabProfesores;
         private System.Windows.Forms.DataGridView dataGridProfessors;
+        private System.Windows.Forms.Button buttonCrear;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

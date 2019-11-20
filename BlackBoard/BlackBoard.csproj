@@ -72,6 +72,12 @@
     <Compile Include="Admin\AdminMain.Designer.cs">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FormAddAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddAcc.Designer.cs">
+      <DependentUpon>FormAddAcc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FormCuentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Admin\AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddAcc.resx">
+      <DependentUpon>FormAddAcc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormCuentas.resx">
       <DependentUpon>FormCuentas.cs</DependentUpon>
