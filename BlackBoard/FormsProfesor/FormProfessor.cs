@@ -83,6 +83,10 @@ namespace BlackBoard.FormsProfesor
             dataGridView1.DefaultCellStyle.SelectionForeColor = SelectedCellForeground;
             selectedCourse = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             fillDataGridAssignment();
+            labelTitle.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            con.Open();
+            textBoxDesc.Text = con.SelectSingle("select description from Course where idCourse = " + selectedCourse + ";").ToString();
+            con.Close();
         }
 
         public void fillDataGridAssignment()
@@ -108,6 +112,14 @@ namespace BlackBoard.FormsProfesor
             string name = dataGridAssignments.SelectedRows[0].Cells[1].Value.ToString();
             FormRevisar ct = new FormRevisar(selectedAssignment,name, this);
             ct.Show();
+
+        }
+
+        private void buttonEnviar_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            con.Command("update Course set description = '" + textBoxDesc.Text.ToString() + "' where idCourse = " + selectedCourse + ";");
+            con.Close();
 
         }
     }
