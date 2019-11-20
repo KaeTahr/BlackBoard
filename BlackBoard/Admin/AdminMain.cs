@@ -39,5 +39,12 @@ namespace BlackBoard.Admin
             login.Show();
             login.ClearPassword();
         }
+
+        private void verEditarCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormEditCourse ec = new FormEditCourse();
+            ec.MdiParent = this;
+            ec.Show();
+        }
     }
 }

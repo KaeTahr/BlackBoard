@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verEditarCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNuevoCursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,9 +56,25 @@
             // 
             // cursosToolStripMenuItem
             // 
+            this.cursosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verEditarCursosToolStripMenuItem,
+            this.crearNuevoCursoToolStripMenuItem});
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
             this.cursosToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.cursosToolStripMenuItem.Text = "Cursos";
+            // 
+            // verEditarCursosToolStripMenuItem
+            // 
+            this.verEditarCursosToolStripMenuItem.Name = "verEditarCursosToolStripMenuItem";
+            this.verEditarCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verEditarCursosToolStripMenuItem.Text = "Ver/Editar Cursos";
+            this.verEditarCursosToolStripMenuItem.Click += new System.EventHandler(this.verEditarCursosToolStripMenuItem_Click);
+            // 
+            // crearNuevoCursoToolStripMenuItem
+            // 
+            this.crearNuevoCursoToolStripMenuItem.Name = "crearNuevoCursoToolStripMenuItem";
+            this.crearNuevoCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearNuevoCursoToolStripMenuItem.Text = "Crear Nuevo Curso";
             // 
             // AdminMain
             // 
@@ -82,5 +100,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verEditarCursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearNuevoCursoToolStripMenuItem;
     }
 }
