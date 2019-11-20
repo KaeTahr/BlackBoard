@@ -31,7 +31,9 @@ namespace BlackBoard.Admin
         {
             string idCourse = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             string name = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            FormSendCourse sc = new FormSendCourse(idCourse, name);
+            string idTeacher = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            FormSendCourse sc = new FormSendCourse(idCourse, name, idTeacher);
+            sc.MdiParent = this.MdiParent;
             sc.Show();
         }
     }

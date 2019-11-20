@@ -20,7 +20,7 @@ namespace BlackBoard
 
         public bool isOpen = false;
 
-        string chain = @"Data Source=db/bb.db ; Version=3;datetimeformat=CurrentCulture";
+        string chain = @"Data Source=db/bb.db ; Version=3;datetimeformat=CurrentCulture;Foreign Keys=True";
 
         /// <summary>
         /// Opens a new connection to the database.
