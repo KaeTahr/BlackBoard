@@ -13,19 +13,22 @@ namespace BlackBoard
     public partial class FormCursos : Form
     {
         string idStudent;
+        string idAccount;
         SQLiteConnector con;
         FormMainStudent parent;
         string selectedCourse;
         Color SelectedCellForeground;
         Color SelectedCellBackground;
+        Forum.ForumMenu ForumUserControl;
 
-        public FormCursos(FormMainStudent m, string idStudent)
+        public FormCursos(FormMainStudent m, string idStudent, string idAccount)
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.MdiParent = m;
             con = new SQLiteConnector();
             this.idStudent = idStudent;
+            this.idAccount = idAccount;
             FillDataGridView();
             parent = m;
             selectedCourse = "";
@@ -120,7 +123,18 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
             con.Close();
 
             FillHWDataGridView();
+            FillForosDataGridView();
 
+        }
+        public void FillForosDataGridView()
+        {
+            if(tabForos.Controls.Contains(ForumUserControl))
+            {
+                tabForos.Controls.Remove(ForumUserControl);
+                ForumUserControl.Dispose();
+            }
+            ForumUserControl = new Forum.ForumMenu(selectedCourse,idAccount);
+            tabForos.Controls.Add(ForumUserControl);
         }
 
         private void dataGridTareas_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -19,7 +19,7 @@ namespace BlackBoard.FormsProfesor
         Color SelectedCellForeground;
         Color SelectedCellBackground;
         string selectedCourse;
-        
+        Forum.ForumMenu ForumUserControl;
 
         public FormProfessor(FormLogin l, string idAccount)
         {
@@ -84,10 +84,22 @@ namespace BlackBoard.FormsProfesor
             dataGridView1.DefaultCellStyle.SelectionForeColor = SelectedCellForeground;
             selectedCourse = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             fillDataGridAssignment();
+            FillForosDataGridView();
             labelTitle.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             con.Open();
             textBoxDesc.Text = con.SelectSingle("select description from Course where idCourse = " + selectedCourse + ";").ToString();
             con.Close();
+        }
+
+        public void FillForosDataGridView()
+        {
+            if (tabForos.Controls.Contains(ForumUserControl))
+            {
+                tabForos.Controls.Remove(ForumUserControl);
+                ForumUserControl.Dispose();
+            }
+            ForumUserControl = new Forum.ForumMenu(selectedCourse, idAccount);
+            tabForos.Controls.Add(ForumUserControl);
         }
 
         public void fillDataGridAssignment()
