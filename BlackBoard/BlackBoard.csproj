@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TecIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -66,6 +69,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMain.Designer.cs">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditStudent.Designer.cs">
+      <DependentUpon>FormEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCreateCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCreateCourse.Designer.cs">
+      <DependentUpon>FormCreateCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormSendCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormSendCourse.Designer.cs">
+      <DependentUpon>FormSendCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAddAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddAcc.Designer.cs">
+      <DependentUpon>FormAddAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCuentas.Designer.cs">
+      <DependentUpon>FormCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEditCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditCourse.Designer.cs">
+      <DependentUpon>FormEditCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGrades.Designer.cs">
+      <DependentUpon>FormGrades.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,29 +129,122 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="FormMainStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <Compile Include="FormMainStudent.Designer.cs">
+      <DependentUpon>FormMainStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsProfesor\FormEnviarCal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormEnviarCal.Designer.cs">
+      <DependentUpon>FormEnviarCal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsProfesor\FormRevisar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormRevisar.Designer.cs">
+      <DependentUpon>FormRevisar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsProfesor\FormCrearTrabajo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormCrearTrabajo.Designer.cs">
+      <DependentUpon>FormCrearTrabajo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsProfesor\FormProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsProfesor\FormProfessor.Designer.cs">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forum\FormForum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forum\FormForum.Designer.cs">
+      <DependentUpon>FormForum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forum\FormPosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forum\FormPosts.Designer.cs">
+      <DependentUpon>FormPosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forum\ForumMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forum\ForumMenu.Designer.cs">
+      <DependentUpon>ForumMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnector.cs" />
+    <Compile Include="UCReply.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCReply.Designer.cs">
+      <DependentUpon>UCReply.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCForum.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCForum.Designer.cs">
       <DependentUpon>UCForum.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\AdminMain.resx">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditStudent.resx">
+      <DependentUpon>FormEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCreateCourse.resx">
+      <DependentUpon>FormCreateCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormSendCourse.resx">
+      <DependentUpon>FormSendCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddAcc.resx">
+      <DependentUpon>FormAddAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCuentas.resx">
+      <DependentUpon>FormCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditCourse.resx">
+      <DependentUpon>FormEditCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCursos.resx">
       <DependentUpon>FormCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGrades.resx">
+      <DependentUpon>FormGrades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormMainStudent.resx">
+      <DependentUpon>FormMainStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormEnviarCal.resx">
+      <DependentUpon>FormEnviarCal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormCrearTrabajo.resx">
+      <DependentUpon>FormCrearTrabajo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormProfessor.resx">
+      <DependentUpon>FormProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsProfesor\FormRevisar.resx">
+      <DependentUpon>FormRevisar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forum\FormForum.resx">
+      <DependentUpon>FormForum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forum\FormPosts.resx">
+      <DependentUpon>FormPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forum\ForumMenu.resx">
+      <DependentUpon>ForumMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,6 +255,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCReply.resx">
+      <DependentUpon>UCReply.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCForum.resx">
       <DependentUpon>UCForum.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +276,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="db\bb.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="db\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TecIcon.ico" />
+    <Content Include="Tecsmol.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

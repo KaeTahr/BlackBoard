@@ -15,16 +15,23 @@ namespace BlackBoard
         public FormLogin()
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            Login();
+
+        }
+
+        private void Login()
+        {
             SQLiteConnector con = new SQLiteConnector();
 
-            string username = textUser.Text;
+            string username = textUser.Text.ToUpper();
             string password = textPassword.Text;
-            
-            if(username=="" || password=="")
+
+            if (username == "" || password == "")
             {
                 MessageBox.Show("Debe llenar ambos campos.", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -37,44 +44,48 @@ namespace BlackBoard
                 con.Open();
                 idAccount = con.SelectSingle(sql);
                 sql = @"select idProfessor from account where idAccount=" + idAccount;
-                int accountType=0;
                 if (con.SelectSingle(sql) == "")
                 {
                     sql = @"select idStudent from account where idAccount=" + idAccount;
                     if (con.SelectSingle(sql) == "")
                     {
-                        accountType = 0;
+                        con.Close();
+                        Admin.AdminMain main = new Admin.AdminMain(this); // TODO: implemenent admin screen
+                        main.Show();
                     }
                     else
                     {
-                        accountType = 2;
+                        con.Close();
+                        FormMainStudent main = new FormMainStudent(this, idAccount);
+                        main.Show();
                     }
                 }
                 else
                 {
-                    accountType = 1;
+                    con.Close();
+                    FormsProfesor.FormProfessor main = new FormsProfesor.FormProfessor(this, idAccount); // TODO: implemenent teacher screen
+                    main.Show();
                 }
                 con.Close();
 
-                FormMain main = new FormMain(this,idAccount, accountType);
+
                 this.Hide();
-                main.Show();
+
             }
-            catch(System.Data.SQLite.SQLiteException err)
+            catch (System.Data.SQLite.SQLiteException err)
             {
-                MessageBox.Show(err.Message.ToString());
+                //MessageBox.Show(err.Message.ToString());
+                Console.WriteLine(err.Message);
             }
-            catch(System.IndexOutOfRangeException)
+            catch (System.IndexOutOfRangeException)
             {
-                MessageBox.Show("Usuario o contraseña incorrecta","Credenciales Inválidas",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Usuario o contraseña incorrecta", "Credenciales Inválidas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally 
+            finally
             {
                 con.Close();
             }
-
         }
-
         public void ClearPassword()
         {
             textPassword.Text = "";
@@ -83,6 +94,15 @@ namespace BlackBoard
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Login();
+                e.Handled = true;
+            }
         }
     }
 }

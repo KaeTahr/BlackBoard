@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,20 +41,20 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(196, 174);
+            this.buttonLogin.Location = new System.Drawing.Point(387, 170);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(75, 23);
-            this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Entrar";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(49, 174);
+            this.buttonCancel.Location = new System.Drawing.Point(240, 170);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 1;
+            this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -61,41 +62,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 58);
+            this.label1.Location = new System.Drawing.Point(237, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Usuario";
             // 
             // textUser
             // 
-            this.textUser.Location = new System.Drawing.Point(129, 50);
+            this.textUser.Location = new System.Drawing.Point(320, 46);
             this.textUser.Name = "textUser";
-            this.textUser.Size = new System.Drawing.Size(100, 20);
-            this.textUser.TabIndex = 3;
+            this.textUser.Size = new System.Drawing.Size(142, 20);
+            this.textUser.TabIndex = 0;
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(129, 104);
+            this.textPassword.Location = new System.Drawing.Point(320, 100);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(100, 20);
-            this.textPassword.TabIndex = 4;
+            this.textPassword.Size = new System.Drawing.Size(142, 20);
+            this.textPassword.TabIndex = 1;
             this.textPassword.UseSystemPasswordChar = true;
+            this.textPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPassword_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(49, 110);
+            this.label2.Location = new System.Drawing.Point(237, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Contraseña";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(328, 31);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(24, 69);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 118);
+            this.pictureBox1.Size = new System.Drawing.Size(188, 51);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -103,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 222);
+            this.ClientSize = new System.Drawing.Size(504, 221);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textPassword);
