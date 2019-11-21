@@ -14,13 +14,15 @@ namespace BlackBoard.Admin
     {
         string idCourse;
         SQLiteConnector con;
-        public FormEditStudent(string idCourse)
+        FormSendCourse parent;
+        public FormEditStudent(string idCourse, FormSendCourse parent)
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.idCourse = idCourse;
             numericUpDown1.Maximum = decimal.MaxValue;
             numericUpDown1.Minimum = 1;
+            this.parent = parent;
             
             con = new SQLiteConnector();
         }
@@ -103,6 +105,11 @@ namespace BlackBoard.Admin
             {
                 con.Close();
             }
+        }
+
+        private void FormEditStudent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.fillStudents();
         }
     }
 }

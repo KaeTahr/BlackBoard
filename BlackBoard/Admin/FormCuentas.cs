@@ -63,5 +63,10 @@ namespace BlackBoard.Admin
         {
             parent.isCuentasOpen = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fillGrids();
+        }
     }
 }

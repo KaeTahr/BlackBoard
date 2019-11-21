@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonAddStudent = new System.Windows.Forms.Button();
@@ -38,7 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonCancel);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSend);
@@ -89,6 +91,17 @@
             this.splitContainer1.SplitterDistance = 187;
             this.splitContainer1.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(626, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Eliminar este Curso";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // buttonCancel
             // 
             this.buttonCancel.Location = new System.Drawing.Point(34, 161);
@@ -101,11 +114,11 @@
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(275, 162);
+            this.buttonSend.Location = new System.Drawing.Point(330, 162);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(75, 23);
             this.buttonSend.TabIndex = 4;
-            this.buttonSend.Text = "Actualizar";
+            this.buttonSend.Text = "Enviar";
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
@@ -163,16 +176,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(794, 240);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // button2
             // 
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(626, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Eliminar este Curso";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(501, 161);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Actualizar lista de estudiantes";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FormSendCourse
             // 
@@ -207,5 +219,6 @@
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Button buttonAddStudent;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

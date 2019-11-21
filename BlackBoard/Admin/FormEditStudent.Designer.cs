@@ -94,6 +94,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormEditStudent";
             this.Text = "BlackBoard | Editar Estudiante";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditStudent_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

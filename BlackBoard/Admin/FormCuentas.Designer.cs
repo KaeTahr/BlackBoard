@@ -35,6 +35,7 @@
             this.dataGridProfessors = new System.Windows.Forms.DataGridView();
             this.buttonCrear = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEstudiantes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudents)).BeginInit();
@@ -126,6 +127,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonCrear);
             // 
             // splitContainer1.Panel2
@@ -134,6 +136,16 @@
             this.splitContainer1.Size = new System.Drawing.Size(947, 577);
             this.splitContainer1.SplitterDistance = 60;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(781, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Actualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormCuentas
             // 
@@ -166,5 +178,6 @@
         private System.Windows.Forms.DataGridView dataGridProfessors;
         private System.Windows.Forms.Button buttonCrear;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button button1;
     }
 }

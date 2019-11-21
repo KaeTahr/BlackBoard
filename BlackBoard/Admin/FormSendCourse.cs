@@ -105,6 +105,8 @@ namespace BlackBoard.Admin
 
                 con.Command("delete from Course where idCourse = " + idCourse + ";");
                 con.Close();
+                MessageBox.Show("Se eliminó con prejuicio");
+                this.Close();
             }
             catch (Exception error)
             {
@@ -115,6 +117,11 @@ namespace BlackBoard.Admin
             {
                 con.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fillStudents();
         }
     }
 }
