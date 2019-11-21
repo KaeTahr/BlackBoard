@@ -55,7 +55,7 @@ namespace BlackBoard.Forum
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string idForum = dataGridView1.Rows[e.RowIndex].Cells["idForum"].Value.ToString();
-            FormPosts fp = new FormPosts(idForum);
+            FormPosts fp = new FormPosts(idForum,idAccount);
             fp.MdiParent = this.ParentForm.MdiParent;
             fp.Show();
         }
