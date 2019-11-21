@@ -20,8 +20,16 @@ namespace BlackBoard.Forum
             con = new SQLiteConnector();
             this.idForum = idForum;
             this.idAutor = idAutor;
+            getTitle();
             GetOP();
             
+        }
+
+        private void getTitle()
+        {
+            con.Open();
+            this.Text = "Foro: " + con.SelectSingle(@"select name from Forum where idForum=" + idForum + ";");
+            con.Close();
         }
         
         private void GetOP()
