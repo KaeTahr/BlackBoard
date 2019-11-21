@@ -192,6 +192,7 @@
             this.dataGridAssignments.MultiSelect = false;
             this.dataGridAssignments.Name = "dataGridAssignments";
             this.dataGridAssignments.ReadOnly = true;
+            this.dataGridAssignments.RowHeadersVisible = false;
             this.dataGridAssignments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAssignments.Size = new System.Drawing.Size(490, 321);
             this.dataGridAssignments.TabIndex = 1;

@@ -56,7 +56,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(223, 92);
+            this.numericUpDown1.Location = new System.Drawing.Point(223, 90);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 2;
@@ -91,8 +91,11 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.labelMax);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(391, 253);
+            this.MinimumSize = new System.Drawing.Size(391, 253);
             this.Name = "FormEnviarCal";
-            this.Text = "Form1";
+            this.Text = "Enviar Calificación";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

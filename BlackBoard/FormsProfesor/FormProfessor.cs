@@ -121,11 +121,14 @@ namespace BlackBoard.FormsProfesor
 
         private void dataGridAssignment_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string selectedAssignment = dataGridAssignments.SelectedRows[0].Cells[0].Value.ToString();
-            string name = dataGridAssignments.SelectedRows[0].Cells[1].Value.ToString();
-            FormRevisar ct = new FormRevisar(selectedAssignment,name, this);
-            ct.Show();
-
+            try
+            {
+                string selectedAssignment = dataGridAssignments.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string name = dataGridAssignments.Rows[e.RowIndex].Cells[1].Value.ToString();
+                FormRevisar ct = new FormRevisar(selectedAssignment, name, this);
+                ct.Show();
+            }
+            catch (ArgumentOutOfRangeException) { } //clicked on header, do nothing
         }
 
         private void buttonEnviar_Click(object sender, EventArgs e)
