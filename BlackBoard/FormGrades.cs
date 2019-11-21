@@ -55,23 +55,30 @@ namespace BlackBoard
 
         private void setAverages()
         {
-            foreach (DataGridViewRow r in dataGridView1.Rows)
+            try
             {
-                decimal val = Convert.ToDecimal(r.Cells["Nota"].Value);
-                decimal total = Convert.ToDecimal(r.Cells["Total"].Value);
-                string result;
-                try
+                foreach (DataGridViewRow r in dataGridView1.Rows)
                 {
-                    result = ((val / total) * 100).ToString() + "%";
-                    Console.WriteLine(result);
-                    r.Cells["percentGrade"].Value = result;
+                    decimal val = Convert.ToDecimal(r.Cells["Nota"].Value);
+                    decimal total = Convert.ToDecimal(r.Cells["Total"].Value);
+                    string result;
+                    try
+                    {
+                        result = ((val / total) * 100).ToString() + "%";
+                        Console.WriteLine(result);
+                        r.Cells["percentGrade"].Value = result;
+                    }
+                    catch (DivideByZeroException e)
+                    {
+                        return;
+                    }
+
+
                 }
-                catch(DivideByZeroException e)
-                {
-                    return;
-                }
-                
-               
+            }
+            catch(InvalidCastException)
+            {
+                //we get empty vals, we ignore this
             }
         }
 
