@@ -27,7 +27,7 @@ namespace BlackBoard.Admin
             fillStudents();
         }
 
-        void fillStudents()
+        public void fillStudents()
         {
             con.Open();
             dataGridView1.DataSource = con.SelectTable(@"select cs.idStudent as ID, s.lastname as Apellido from course_student cs 
@@ -71,7 +71,7 @@ namespace BlackBoard.Admin
 
         private void buttonAddStudent_Click(object sender, EventArgs e)
         {
-            FormEditStudent es = new FormEditStudent(idCourse);
+            FormEditStudent es = new FormEditStudent(idCourse, this);
             es.Show();
             es.MdiParent = this.MdiParent;
         }

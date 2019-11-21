@@ -133,6 +133,7 @@ namespace BlackBoard.FormsProfesor
             con.Open();
             con.Command("update Course set description = '" + textBoxDesc.Text.ToString() + "' where idCourse = " + selectedCourse + ";");
             con.Close();
+            MessageBox.Show("Se envió el anuncio correctamente");
 
         }
     }
