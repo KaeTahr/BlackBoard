@@ -12,9 +12,12 @@ namespace BlackBoard
 {
     public partial class UCForum : UserControl
     {
-        public UCForum()
+        public UCForum(string name, string author, string content)
         {
             InitializeComponent();
+            Title.Text = name;
+            AuthorName.Text = author;
+            label1.Text = content;
         }
     }
 }

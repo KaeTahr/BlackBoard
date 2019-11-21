@@ -165,6 +165,12 @@
     <Compile Include="Forum\FormForum.Designer.cs">
       <DependentUpon>FormForum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forum\FormPosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forum\FormPosts.Designer.cs">
+      <DependentUpon>FormPosts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forum\ForumMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forum\FormForum.resx">
       <DependentUpon>FormForum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forum\FormPosts.resx">
+      <DependentUpon>FormPosts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forum\ForumMenu.resx">
       <DependentUpon>ForumMenu.cs</DependentUpon>
