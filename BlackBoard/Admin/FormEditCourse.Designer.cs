@@ -55,6 +55,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormEditCourse";
             this.Text = "BlackBoard | Cursos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEditCourse_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

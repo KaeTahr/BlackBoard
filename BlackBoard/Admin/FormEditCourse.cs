@@ -13,11 +13,14 @@ namespace BlackBoard.Admin
     public partial class FormEditCourse : Form
     {
         SQLiteConnector con;
-        public FormEditCourse()
+        AdminMain parent;
+        public FormEditCourse(AdminMain parent)
         {
             InitializeComponent();
             con = new SQLiteConnector(); 
             fillDataGrid();
+            this.parent = parent;
+
         }
         void fillDataGrid()
         {
@@ -35,6 +38,11 @@ namespace BlackBoard.Admin
             FormSendCourse sc = new FormSendCourse(idCourse, name, idTeacher);
             sc.MdiParent = this.MdiParent;
             sc.Show();
+        }
+
+        private void FormEditCourse_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.isCuentasOpen = false;
         }
     }
 }

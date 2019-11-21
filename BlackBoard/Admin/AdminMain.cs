@@ -13,7 +13,7 @@ namespace BlackBoard.Admin
     public partial class AdminMain : Form
     {
         public bool isCuentasOpen;
-        bool isCursosOpen;
+        public bool isCursosOpen;
         FormLogin login;
         public AdminMain(FormLogin l)
         {
@@ -27,7 +27,7 @@ namespace BlackBoard.Admin
             if (!isCuentasOpen)
             {
                 isCuentasOpen = true;
-                FormCuentas fc = new FormCuentas();
+                FormCuentas fc = new FormCuentas(this);
                 fc.MdiParent = this;
                 fc.Show();
             }
@@ -42,9 +42,13 @@ namespace BlackBoard.Admin
 
         private void verEditarCursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEditCourse ec = new FormEditCourse();
-            ec.MdiParent = this;
-            ec.Show();
+            if(!isCursosOpen)
+            {
+                FormEditCourse ec = new FormEditCourse(this);
+                ec.MdiParent = this;
+                ec.Show();
+                isCursosOpen = true;
+            }
         }
     }
 }
