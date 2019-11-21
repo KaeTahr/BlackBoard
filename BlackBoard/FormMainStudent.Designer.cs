@@ -32,7 +32,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tareasPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,8 +39,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cursosToolStripMenuItem,
-            this.calificacionesToolStripMenuItem,
-            this.tareasPendientesToolStripMenuItem});
+            this.calificacionesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1162, 24);
@@ -61,12 +59,6 @@
             this.calificacionesToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.calificacionesToolStripMenuItem.Text = "Calificaciones";
             this.calificacionesToolStripMenuItem.Click += new System.EventHandler(this.calificacionesToolStripMenuItem_Click);
-            // 
-            // tareasPendientesToolStripMenuItem
-            // 
-            this.tareasPendientesToolStripMenuItem.Name = "tareasPendientesToolStripMenuItem";
-            this.tareasPendientesToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.tareasPendientesToolStripMenuItem.Text = "Tareas pendientes";
             // 
             // FormMainStudent
             // 
@@ -95,6 +87,5 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calificacionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tareasPendientesToolStripMenuItem;
     }
 }
