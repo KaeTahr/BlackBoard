@@ -16,6 +16,7 @@ namespace BlackBoard.Admin
         public FormCreateCourse()
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con = new SQLiteConnector();
             numericUpDownProf.Maximum = decimal.MaxValue;
             numericUpDownProf.Minimum = 1;
