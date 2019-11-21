@@ -42,7 +42,7 @@ namespace BlackBoard.Admin
 
         private void FormEditCourse_FormClosed(object sender, FormClosedEventArgs e)
         {
-            parent.isCuentasOpen = false;
+            parent.isCursosOpen = false;
         }
     }
 }
