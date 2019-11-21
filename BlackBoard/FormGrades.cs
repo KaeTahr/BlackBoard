@@ -12,6 +12,7 @@ namespace BlackBoard
 {
     public partial class FormGrades : Form
     {
+        bool dataGrabbed;
         string idStudent;
         SQLiteConnector con;
         FormMainStudent parent;
@@ -22,6 +23,7 @@ namespace BlackBoard
             con = new SQLiteConnector();
             this.idStudent = idStudent;
             parent = m;
+            dataGrabbed = false;
             fillDataGrid();
         }
 
@@ -37,12 +39,50 @@ namespace BlackBoard
             dataGridView1.DataSource = con.SelectTable(String.Format(sql, idStudent));
             con.Close();
 
+            dataGrabbed = true;
+            DataGridViewColumn dc = new DataGridViewColumn()
+            {
+                Name = "percentGrade",
+                Visible = true,
+                HeaderText = "Promedio",
+                CellTemplate = new DataGridViewTextBoxCell()
+            };
+            dataGridView1.Columns.Insert(3, dc);
+            //setAverages();
         
+        }
+
+        private void setAverages()
+        {
+            foreach (DataGridViewRow r in dataGridView1.Rows)
+            {
+                decimal val = Convert.ToDecimal(r.Cells["Nota"].Value);
+                decimal total = Convert.ToDecimal(r.Cells["Total"].Value);
+                string result;
+                try
+                {
+                    result = ((val / total) * 100).ToString() + "%";
+                    Console.WriteLine(result);
+                    r.Cells["percentGrade"].Value = result;
+                }
+                catch(DivideByZeroException e)
+                {
+                    return;
+                }
+                
+               
+            }
         }
 
         private void FormGrades_FormClosed(object sender, FormClosedEventArgs e)
         {
             parent.setGradesBool();
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if(dataGrabbed)
+                setAverages();
         }
     }
 }
