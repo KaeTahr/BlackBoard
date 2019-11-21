@@ -15,6 +15,7 @@ namespace BlackBoard.Admin
         public FormCreateCourse()
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
     }

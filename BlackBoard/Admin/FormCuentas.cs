@@ -17,6 +17,7 @@ namespace BlackBoard.Admin
         public FormCuentas(AdminMain parent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con = new SQLiteConnector();
             fillGrids();
             this.parent = parent;

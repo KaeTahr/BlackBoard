@@ -15,7 +15,7 @@ namespace BlackBoard
         public FormLogin()
         {
             InitializeComponent();
-          
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)

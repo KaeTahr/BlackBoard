@@ -20,6 +20,7 @@ namespace BlackBoard.Admin
         public FormAddAcc(FormCuentas parent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.parent = parent;
             con = new SQLiteConnector();
             isEditing = false;

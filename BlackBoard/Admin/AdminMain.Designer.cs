@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,22 +67,25 @@
             // verEditarCursosToolStripMenuItem
             // 
             this.verEditarCursosToolStripMenuItem.Name = "verEditarCursosToolStripMenuItem";
-            this.verEditarCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verEditarCursosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.verEditarCursosToolStripMenuItem.Text = "Ver/Editar Cursos";
             this.verEditarCursosToolStripMenuItem.Click += new System.EventHandler(this.verEditarCursosToolStripMenuItem_Click);
             // 
             // crearNuevoCursoToolStripMenuItem
             // 
             this.crearNuevoCursoToolStripMenuItem.Name = "crearNuevoCursoToolStripMenuItem";
-            this.crearNuevoCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearNuevoCursoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.crearNuevoCursoToolStripMenuItem.Text = "Crear Nuevo Curso";
             // 
             // AdminMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(995, 592);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminMain";

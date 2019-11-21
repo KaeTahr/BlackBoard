@@ -19,6 +19,7 @@ namespace BlackBoard
         public FormGrades(FormMainStudent m, string idStudent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.MdiParent = m;
             con = new SQLiteConnector();
             this.idStudent = idStudent;

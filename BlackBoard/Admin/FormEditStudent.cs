@@ -17,6 +17,7 @@ namespace BlackBoard.Admin
         public FormEditStudent(string idCourse)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.idCourse = idCourse;
             numericUpDown1.Maximum = decimal.MaxValue;
             numericUpDown1.Minimum = 1;

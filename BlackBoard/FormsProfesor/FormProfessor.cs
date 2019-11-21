@@ -24,6 +24,7 @@ namespace BlackBoard.FormsProfesor
         public FormProfessor(FormLogin l, string idAccount)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con = new SQLiteConnector();
             login = l;
             this.idAccount = idAccount;

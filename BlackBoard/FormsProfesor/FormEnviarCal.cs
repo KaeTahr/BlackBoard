@@ -20,6 +20,7 @@ namespace BlackBoard.FormsProfesor
         public FormEnviarCal(string idStudent, string idAssignment,FormRevisar parent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con = new SQLiteConnector();
             this.idAssignment = idAssignment;
             this.idStudent = idStudent;

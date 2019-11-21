@@ -19,6 +19,7 @@ namespace BlackBoard.FormsProfesor
         public FormRevisar(string idAssignment, string AssName, FormProfessor parent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.idAssignment = idAssignment;
             AssignmentName = AssName;
             setTitle();

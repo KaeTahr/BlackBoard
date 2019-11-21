@@ -17,6 +17,7 @@ namespace BlackBoard.Admin
         public FormEditCourse(AdminMain parent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con = new SQLiteConnector(); 
             fillDataGrid();
             this.parent = parent;

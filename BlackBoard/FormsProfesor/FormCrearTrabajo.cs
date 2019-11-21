@@ -18,6 +18,7 @@ namespace BlackBoard.FormsProfesor
         public FormCrearTrabajo(string idCourse, FormProfessor p)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.idCourse = idCourse;
             con = new SQLiteConnector();
             parent = p;

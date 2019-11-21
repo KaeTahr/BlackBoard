@@ -19,6 +19,7 @@ namespace BlackBoard.Admin
         {
             isCuentasOpen = isCursosOpen = false;
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             login = l;
         }
 
