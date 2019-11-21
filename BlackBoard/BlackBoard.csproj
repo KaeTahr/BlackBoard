@@ -72,6 +72,18 @@
     <Compile Include="Admin\AdminMain.Designer.cs">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FormEditStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditStudent.Designer.cs">
+      <DependentUpon>FormEditStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormCreateCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormCreateCourse.Designer.cs">
+      <DependentUpon>FormCreateCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FormSendCourse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,12 @@
     </Compile>
     <EmbeddedResource Include="Admin\AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditStudent.resx">
+      <DependentUpon>FormEditStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormCreateCourse.resx">
+      <DependentUpon>FormCreateCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormSendCourse.resx">
       <DependentUpon>FormSendCourse.cs</DependentUpon>

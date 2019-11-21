@@ -67,5 +67,11 @@ namespace BlackBoard.Admin
                 con.Close();
             }
         }
+
+        private void buttonAddStudent_Click(object sender, EventArgs e)
+        {
+            FormEditStudent es = new FormEditStudent(idCourse);
+            es.Show();
+        }
     }
 }
