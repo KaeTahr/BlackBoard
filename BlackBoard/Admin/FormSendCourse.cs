@@ -76,19 +76,21 @@ namespace BlackBoard.Admin
             es.MdiParent = this.MdiParent;
         }
 
+        //ButtonDelete
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Desea crear este trabajo?\nRevise todos los campos antes de confirmar.", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("¿Desea eliminar este curso?", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dr.Equals(DialogResult.Cancel))
             {
                 return;
             }
             try
             {
+                con.Open();
                 DataTable dt = con.SelectTable("select idAssignment from assignment where idCourse = " + idCourse + ";");
                 foreach(DataRow r in dt.Rows)
                 {
-                    con.Command("delete from assignmnet_student where idAssignment = " + r.ItemArray[0].ToString() + ';');
+                    con.Command("delete from assignment_student where idAssignment = " + r.ItemArray[0].ToString() + ';');
                 }
                 con.Command("delete from assignment where idCourse = " + idCourse + ";");
 
@@ -100,9 +102,13 @@ namespace BlackBoard.Admin
                 con.Command("delete from Forum where idCourse = " + idCourse + ";");
 
                 con.Command("delete from course_student where idCourse = " + idCourse + ";");
+
+                con.Command("delete from Course where idCourse = " + idCourse + ";");
+                con.Close();
             }
             catch (Exception error)
             {
+                con.Close();
                 MessageBox.Show(error.Message);
             }
             finally
