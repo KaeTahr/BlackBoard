@@ -123,7 +123,7 @@ namespace BlackBoard
         {
             if (!isCursosOpen)
             {
-                cursos = new FormCursos(this, idStudent);
+                cursos = new FormCursos(this, idStudent,idAccount);
                 cursos.Show();
                 cursos.WindowState = FormWindowState.Minimized;
                 cursos.WindowState = FormWindowState.Maximized;
