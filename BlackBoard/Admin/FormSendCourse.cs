@@ -72,6 +72,7 @@ namespace BlackBoard.Admin
         {
             FormEditStudent es = new FormEditStudent(idCourse);
             es.Show();
+            es.MdiParent = this.MdiParent;
         }
     }
 }

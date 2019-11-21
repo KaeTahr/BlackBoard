@@ -143,6 +143,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormCuentas";
             this.Text = "Cuentas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCuentas_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabEstudiantes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudents)).EndInit();

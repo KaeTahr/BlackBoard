@@ -13,11 +13,14 @@ namespace BlackBoard.Admin
     public partial class FormCuentas : Form
     {
         SQLiteConnector con;
-        public FormCuentas()
+        AdminMain parent;
+        public FormCuentas(AdminMain parent)
         {
             InitializeComponent();
             con = new SQLiteConnector();
             fillGrids();
+            this.parent = parent;
+            
         }
 
         public void fillGrids()
@@ -53,6 +56,11 @@ namespace BlackBoard.Admin
             string idStudent = dataGridStudents.SelectedRows[0].Cells["Matrícula"].Value.ToString();
             FormAddAcc ac = new FormAddAcc(this, idStudent, "student");
             ac.Show();
+        }
+
+        private void FormCuentas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.isCuentasOpen = false;
         }
     }
 }

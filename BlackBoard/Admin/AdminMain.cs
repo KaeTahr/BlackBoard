@@ -12,7 +12,7 @@ namespace BlackBoard.Admin
 {
     public partial class AdminMain : Form
     {
-        bool isCuentasOpen;
+        public bool isCuentasOpen;
         bool isCursosOpen;
         FormLogin login;
         public AdminMain(FormLogin l)
