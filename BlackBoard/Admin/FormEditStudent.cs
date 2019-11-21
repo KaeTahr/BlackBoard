@@ -76,13 +76,16 @@ namespace BlackBoard.Admin
             try
             {
                 con.Open();
-                DataTable dt = con.SelectTable(@" select ass.idAssignment from assignment_student ass
-                                               inner join assignment a on ass.idAssignment = a.idAssignment
-                                                where a.idCourse = " + idCourse + " and idStudent = " + idStudent + ";");
+                DataTable dt = con.SelectTable(@"select * from course_student where idCourse = " + idCourse + " and idStudent = " + idStudent + ";");
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     MessageBox.Show("El estudiante no está inscrito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    con.Close();
+                    return;
                 }
+                dt = con.SelectTable(@" select ass.idAssignment from assignment_student ass
+                                               inner join assignment a on ass.idAssignment = a.idAssignment
+                                                where a.idCourse = " + idCourse + " and idStudent = " + idStudent + ";");
                 foreach(DataRow r in dt.Rows)
                 {
                     con.Command(@"delete from assignment_student where idStudent = " + idStudent + " and idAssignment = " + r.ItemArray[0].ToString() + ";");
