@@ -68,5 +68,37 @@ namespace BlackBoard.Admin
                 con.Close();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string idStudent = numericUpDown1.Value.ToString();
+
+            try
+            {
+                con.Open();
+                DataTable dt = con.SelectTable(@" select ass.idAssignment from assignment_student ass
+                                               inner join assignment a on ass.idAssignment = a.idAssignment
+                                                where a.idCourse = " + idCourse + " and idStudent = " + idStudent + ";");
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("El estudiante no está inscrito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                foreach(DataRow r in dt.Rows)
+                {
+                    con.Command(@"delete from assignment_student where idStudent = " + idStudent + " and idAssignment = " + r.ItemArray[0].ToString() + ";");
+                }
+                con.Command("delete from course_student where idCourse = " + idCourse + " and idStudent = " + idStudent + ";");
+                MessageBox.Show("Estudiante eliminado del curso exitosamente", "Modificación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                con.Close();
+            }
+            catch(System.Data.SQLite.SQLiteException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
