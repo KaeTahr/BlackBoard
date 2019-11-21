@@ -64,7 +64,7 @@
             // tareasPendientesToolStripMenuItem
             // 
             this.tareasPendientesToolStripMenuItem.Name = "tareasPendientesToolStripMenuItem";
-            this.tareasPendientesToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.tareasPendientesToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
             this.tareasPendientesToolStripMenuItem.Text = "Tareas pendientes";
             // 
             // FormMainStudent

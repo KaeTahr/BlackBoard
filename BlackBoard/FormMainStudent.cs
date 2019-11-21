@@ -142,6 +142,7 @@ namespace BlackBoard
                 grades = new FormGrades(this, idStudent);
                 grades.MdiParent = this;
                 grades.Show();
+                
                 grades.WindowState = FormWindowState.Minimized;
                 grades.WindowState = FormWindowState.Maximized;
                 isGradesOpen = true;

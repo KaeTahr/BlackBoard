@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormGrades";
-            this.Text = "Form1";
+            this.Text = "Calificaciones";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormGrades_FormClosed);
             this.ResumeLayout(false);
 
