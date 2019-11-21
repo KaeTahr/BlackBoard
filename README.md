@@ -28,3 +28,4 @@ Si el proyecto no compila/ejecuta con un error quejándose de SQL.interop.dll, h
 |13  |	gators	 |	A9      |
 |14  |  willow	 |	A10	|
 
+Las claves distinguen entre mayúscula e minúscula, pero los usuarios no.
