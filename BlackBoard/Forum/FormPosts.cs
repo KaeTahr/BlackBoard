@@ -17,6 +17,7 @@ namespace BlackBoard.Forum
         public FormPosts(string idForum, string idAutor)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             con = new SQLiteConnector();
             this.idForum = idForum;
             this.idAutor = idAutor;
