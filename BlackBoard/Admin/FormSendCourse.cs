@@ -58,7 +58,7 @@ namespace BlackBoard.Admin
                 con.Command(@"update course set name = '" + textBox1.Text + "', idProfessor = " + numericUpDown1.Value.ToString() + " where idCourse = " + idCourse + ";");
                 con.Close();
             }
-            catch(System.Data.SQLite.SQLiteException)
+            catch (System.Data.SQLite.SQLiteException)
             {
                 con.Close();
                 MessageBox.Show("ID de profesor no valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,5 +75,41 @@ namespace BlackBoard.Admin
             es.Show();
             es.MdiParent = this.MdiParent;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Desea crear este trabajo?\nRevise todos los campos antes de confirmar.", "Confirmar", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr.Equals(DialogResult.Cancel))
+            {
+                return;
+            }
+            try
+            {
+                DataTable dt = con.SelectTable("select idAssignment from assignment where idCourse = " + idCourse + ";");
+                foreach(DataRow r in dt.Rows)
+                {
+                    con.Command("delete from assignmnet_student where idAssignment = " + r.ItemArray[0].ToString() + ';');
+                }
+                con.Command("delete from assignment where idCourse = " + idCourse + ";");
+
+                dt = con.SelectTable("select idForum from Forum where idCourse = " + idCourse + ";");
+                foreach(DataRow r in dt.Rows)
+                {
+                    con.Command("delete from post where idForum = " + r.ItemArray[0].ToString() + ';');
+                }
+                con.Command("delete from Forum where idCourse = " + idCourse + ";");
+
+                con.Command("delete from course_student where idCourse = " + idCourse + ";");
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }
+
