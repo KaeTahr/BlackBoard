@@ -38,7 +38,6 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.tabTareas = new System.Windows.Forms.TabPage();
             this.dataGridTareas = new System.Windows.Forms.DataGridView();
-            this.tabCalificaciones = new System.Windows.Forms.TabPage();
             this.tabForos = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,7 +111,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabStart);
             this.tabControl1.Controls.Add(this.tabTareas);
-            this.tabControl1.Controls.Add(this.tabCalificaciones);
             this.tabControl1.Controls.Add(this.tabForos);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -188,16 +186,6 @@
             this.dataGridTareas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridTareas_CellContentClick);
             this.dataGridTareas.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridTareas_CellMouseUp);
             // 
-            // tabCalificaciones
-            // 
-            this.tabCalificaciones.Location = new System.Drawing.Point(4, 22);
-            this.tabCalificaciones.Name = "tabCalificaciones";
-            this.tabCalificaciones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCalificaciones.Size = new System.Drawing.Size(614, 428);
-            this.tabCalificaciones.TabIndex = 1;
-            this.tabCalificaciones.Text = "Calificaciones";
-            this.tabCalificaciones.UseVisualStyleBackColor = true;
-            // 
             // tabForos
             // 
             this.tabForos.Location = new System.Drawing.Point(4, 22);
@@ -242,7 +230,6 @@
         private System.Windows.Forms.TabPage tabStart;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.TabPage tabTareas;
-        private System.Windows.Forms.TabPage tabCalificaciones;
         private System.Windows.Forms.TabPage tabForos;
         private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.Label labelProfe;
