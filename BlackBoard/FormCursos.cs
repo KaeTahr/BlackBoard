@@ -72,7 +72,7 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
                 dataGridTareas.Columns[i].ReadOnly = true;
             }
 
-
+            
             //disable editing on cells that are enabled
             foreach(DataGridViewRow r in dataGridTareas.Rows)
             {
@@ -178,6 +178,29 @@ inner  join student s on s.idStudent=cs.idCourse where cs.idStudent= " + idStude
                 dataGridTareas.EndEdit();
             }*/
 
+        }
+
+        private void dataGridTareas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow r in dataGridTareas.Rows)
+            {
+                if (Convert.ToBoolean(r.Cells["Entregado"].Value) == true)
+                {
+                    r.Cells["Entregado"].ReadOnly = true;
+                    if (r.Cells["Calificación"].Value.ToString() == "")
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Yellow;
+                    }
+                    else if (r.Cells["Calificación"].Value.ToString() == "0")
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        r.DefaultCellStyle.BackColor = Color.Green;
+                    }
+                }
+            }
         }
     }
 }

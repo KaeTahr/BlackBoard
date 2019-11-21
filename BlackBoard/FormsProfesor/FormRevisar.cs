@@ -42,16 +42,20 @@ where idAssignment = " + idAssignment;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["Entregado"].Value) == true)
+            try
             {
-                string idStudent = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                FormEnviarCal ec = new FormEnviarCal(idStudent, idAssignment,this);
-                ec.Show();
+                if (Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["Entregado"].Value) == true)
+                {
+                    string idStudent = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    FormEnviarCal ec = new FormEnviarCal(idStudent, idAssignment, this);
+                    ec.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El trabajo no ha sido entregado");
+                }
             }
-            else
-            {
-                MessageBox.Show("El trabajo no ha sido entregado");
-            }
+            catch (ArgumentOutOfRangeException) { } //clicked on the header, don't do anything
         }
         void setTitle()
         {

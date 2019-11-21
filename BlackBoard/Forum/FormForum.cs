@@ -24,6 +24,7 @@ namespace BlackBoard.Forum
         public FormForum(string idAuthor, string idCourse, ForumMenu parent)
         {
             InitializeComponent();
+            this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             this.idAuthor = idAuthor;
             this.idCourse = idCourse;
             con = new SQLiteConnector();
