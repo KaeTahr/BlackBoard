@@ -67,15 +67,16 @@
             // verEditarCursosToolStripMenuItem
             // 
             this.verEditarCursosToolStripMenuItem.Name = "verEditarCursosToolStripMenuItem";
-            this.verEditarCursosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.verEditarCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verEditarCursosToolStripMenuItem.Text = "Ver/Editar Cursos";
             this.verEditarCursosToolStripMenuItem.Click += new System.EventHandler(this.verEditarCursosToolStripMenuItem_Click);
             // 
             // crearNuevoCursoToolStripMenuItem
             // 
             this.crearNuevoCursoToolStripMenuItem.Name = "crearNuevoCursoToolStripMenuItem";
-            this.crearNuevoCursoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.crearNuevoCursoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearNuevoCursoToolStripMenuItem.Text = "Crear Nuevo Curso";
+            this.crearNuevoCursoToolStripMenuItem.Click += new System.EventHandler(this.crearNuevoCursoToolStripMenuItem_Click);
             // 
             // AdminMain
             // 
@@ -85,6 +86,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(995, 592);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

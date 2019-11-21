@@ -51,5 +51,11 @@ namespace BlackBoard.Admin
                 isCursosOpen = true;
             }
         }
+
+        private void crearNuevoCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCreateCourse cc = new FormCreateCourse();
+            cc.Show();
+        }
     }
 }

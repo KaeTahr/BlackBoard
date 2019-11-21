@@ -43,10 +43,17 @@ namespace BlackBoard.Admin
                 con.Open();
                 con.Command(sql);
                 con.Close();
+                MessageBox.Show("Curso creado correctamente");
+                this.Close();
             }
             catch (System.Data.SQLite.SQLiteException error)
             {
-                if (true)
+                if (error.Message.Contains("KEY constraint"))
+                {
+                    MessageBox.Show("No existe este profesor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+                else 
                 {
                     MessageBox.Show(error.Message);
                 }
