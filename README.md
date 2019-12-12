@@ -1,11 +1,5 @@
 # BlackBoard
-Este es un proyecto para la clase de Ingenería de Software. 
-
-## Integrantes del Equipo
-
-- Kevin Daniel Chinchilla Flores - A00825945
-- David Alejando García Treviño - A01570231
-- Rodrigo Gelacio Torres Velasco - A00825924
+Este es un proyecto para la clase de Ingenería de Software utilizando el framework .NET
 
 ## Notas para Visual Studio
 Si el proyecto no compila/ejecuta con un error quejándose de SQL.interop.dll, habrá que revisar la configuración de compilación del proyecto y asegurarse que el proyecto genere un binario de 64 bits.
